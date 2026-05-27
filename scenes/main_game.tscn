@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cfc16bfmxdlt1"]
+
+[ext_resource type="PackedScene" uid="uid://bl265i512mxju" path="res://characters/frog.tscn" id="1_s3esy"]
+
+[node name="Node2D" type="Node2D" unique_id=1472344536]
+
+[node name="Frog" parent="." unique_id=2026523039 instance=ExtResource("1_s3esy")]
+position = Vector2(36, 165)
