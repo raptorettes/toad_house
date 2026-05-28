@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://bl265i512mxju"]
 
-[ext_resource type="Texture2D" uid="uid://d0bsus23cht8w" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog 1/Frog.png" id="1_jng8l"]
 [ext_resource type="Script" uid="uid://ckdtf3dywb0w3" path="res://scripts/frog.gd" id="1_yoiyo"]
+[ext_resource type="Texture2D" uid="uid://n0g4ms0hdx07" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog 3/Frog.png" id="2_yoiyo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yoiyo"]
+size = Vector2(9.5, 3.5)
 
 [sub_resource type="Animation" id="Animation_yoiyo"]
 length = 0.001
@@ -185,7 +188,8 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_k8pfn"]
 resource_name = "run"
-length = 0.7
+length = 0.5
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -193,10 +197,10 @@ tracks/0/path = NodePath("Sprite2D:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.099999994, 0.2, 0.3, 0.4, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.10000001, 0.2, 0.3, 0.39999998),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [Vector2i(0, 3), Vector2i(1, 3), Vector2i(2, 3), Vector2i(3, 3), Vector2i(4, 3), Vector2i(5, 3), Vector2i(6, 3)]
+"values": [Vector2i(2, 3), Vector2i(3, 3), Vector2i(4, 3), Vector2i(5, 3), Vector2i(6, 3)]
 }
 
 [sub_resource type="Animation" id="Animation_m1d0i"]
@@ -339,16 +343,18 @@ states/run/position = Vector2(710, 97)
 transitions = ["Start", "idle1", SubResource("AnimationNodeStateMachineTransition_uu10c"), "idle1", "idle2", SubResource("AnimationNodeStateMachineTransition_6k74j"), "idle2", "idle3", SubResource("AnimationNodeStateMachineTransition_kfnws"), "idle3", "jump", SubResource("AnimationNodeStateMachineTransition_ibsxe"), "jump", "run", SubResource("AnimationNodeStateMachineTransition_m1d0i"), "run", "jump", SubResource("AnimationNodeStateMachineTransition_rs5rh"), "jump", "idle3", SubResource("AnimationNodeStateMachineTransition_30o6n"), "idle3", "idle2", SubResource("AnimationNodeStateMachineTransition_xosqm"), "idle2", "idle1", SubResource("AnimationNodeStateMachineTransition_t81jd")]
 
 [node name="Frog" type="CharacterBody2D" unique_id=2026523039]
+y_sort_enabled = true
 script = ExtResource("1_yoiyo")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=594722287]
 position = Vector2(0, -8)
-texture = ExtResource("1_jng8l")
+texture = ExtResource("2_yoiyo")
 hframes = 16
 vframes = 23
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=103795892]
-position = Vector2(0, -8)
+position = Vector2(0.25, -2.25)
+shape = SubResource("RectangleShape2D_yoiyo")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=788439980]
 libraries/ = SubResource("AnimationLibrary_cjtb3")

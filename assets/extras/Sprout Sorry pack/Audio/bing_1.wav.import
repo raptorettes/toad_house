@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ijn0ixpkm7g"
+path="res://.godot/imported/bing_1.wav-794036917a34e043b452383c62d75970.sample"
+
+[deps]
+
+source_file="res://assets/extras/Sprout Sorry pack/Audio/bing_1.wav"
+dest_files=["res://.godot/imported/bing_1.wav-794036917a34e043b452383c62d75970.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cfjyap6h0n0aq"
+path="res://.godot/imported/phone_2.wav-840723bd7b613aa6c34039acf44b2798.sample"
+
+[deps]
+
+source_file="res://assets/extras/Sprout Sorry pack/Audio/phone_2.wav"
+dest_files=["res://.godot/imported/phone_2.wav-840723bd7b613aa6c34039acf44b2798.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

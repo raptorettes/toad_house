@@ -1,7 +1,14 @@
 [gd_scene format=3 uid="uid://clr5yak66yj4p"]
 
-[ext_resource type="Script" uid="uid://ckdtf3dywb0w3" path="res://scripts/frog.gd" id="1_m75om"]
+[ext_resource type="Script" uid="uid://cm1xgpllwg071" path="res://scripts/NPCfrog.gd" id="1_m75om"]
 [ext_resource type="Texture2D" uid="uid://d0bsus23cht8w" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog 1/Frog.png" id="2_jats0"]
+[ext_resource type="BehaviorTree" uid="uid://6kqtn5rfa14h" path="res://characters/npc_frog.tres" id="3_jats0"]
+[ext_resource type="Texture2D" uid="uid://nawy1drko0ij" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog 2/Frog.png" id="3_pudxr"]
+[ext_resource type="Texture2D" uid="uid://n0g4ms0hdx07" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog 3/Frog.png" id="4_jg3rj"]
+[ext_resource type="Texture2D" uid="uid://c35rja87ca027" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog 4/Frog.png" id="5_yygk4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pudxr"]
+size = Vector2(9, 4.5)
 
 [sub_resource type="Animation" id="Animation_yoiyo"]
 length = 0.001
@@ -135,7 +142,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_uu10c"]
 resource_name = "jump"
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -166,6 +172,22 @@ tracks/0/keys = {
 "values": [Vector2i(0, 20), Vector2i(1, 20), Vector2i(2, 20), Vector2i(3, 20)]
 }
 
+[sub_resource type="Animation" id="Animation_pudxr"]
+resource_name = "pause"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(1, 3)]
+}
+
 [sub_resource type="Animation" id="Animation_ibsxe"]
 resource_name = "ribbit"
 length = 0.4
@@ -186,6 +208,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_k8pfn"]
 resource_name = "run"
 length = 0.7
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -193,7 +216,7 @@ tracks/0/path = NodePath("Sprite2D:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.099999994, 0.2, 0.3, 0.4, 0.5, 0.6),
+"times": PackedFloat32Array(0, 0.1, 0.20000002, 0.30000004, 0.4, 0.5, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [Vector2i(0, 3), Vector2i(1, 3), Vector2i(2, 3), Vector2i(3, 3), Vector2i(4, 3), Vector2i(5, 3), Vector2i(6, 3)]
@@ -276,6 +299,7 @@ _data = {
 &"idle3": SubResource("Animation_eoj8y"),
 &"jump": SubResource("Animation_uu10c"),
 &"ledge": SubResource("Animation_xosqm"),
+&"pause": SubResource("Animation_pudxr"),
 &"ribbit": SubResource("Animation_ibsxe"),
 &"run": SubResource("Animation_k8pfn"),
 &"sit": SubResource("Animation_m1d0i"),
@@ -283,6 +307,12 @@ _data = {
 &"sleep": SubResource("Animation_6k74j"),
 &"surprise": SubResource("Animation_t81jd")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jats0"]
+animation = &"get_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_o0kpo"]
+animation = &"get_up"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yoiyo"]
 animation = &"idle1"
@@ -296,11 +326,26 @@ animation = &"idle3"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_eoj8y"]
 animation = &"jump"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x5rk5"]
+animation = &"ribbit"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_k8pfn"]
 animation = &"ribbit"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cjtb3"]
 animation = &"run"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pudxr"]
+animation = &"sit"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jg3rj"]
+animation = &"sit_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yygk4"]
+animation = &"sleep"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jn2ad"]
+animation = &"surprise"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uu10c"]
 advance_mode = 2
@@ -314,7 +359,6 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m1d0i"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rs5rh"]
-advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_30o6n"]
 
@@ -322,8 +366,40 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_t81jd"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_q4b6l"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_78wqr"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uxnr3"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nq4yk"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_b301c"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a4r7d"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_eeu52"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_w0m61"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_moto4"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bnyna"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_valfv"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jsgv4"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_glqi3"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ao0dt"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_5r1h6"]
-states/End/position = Vector2(1137, 92)
+states/End/position = Vector2(1838, 91)
+states/get_down/node = SubResource("AnimationNodeAnimation_jats0")
+states/get_down/position = Vector2(836, 90)
+states/get_up/node = SubResource("AnimationNodeAnimation_o0kpo")
+states/get_up/position = Vector2(1120, 90)
 states/idle1/node = SubResource("AnimationNodeAnimation_yoiyo")
 states/idle1/position = Vector2(294, 94)
 states/idle2/node = SubResource("AnimationNodeAnimation_qcyj3")
@@ -334,21 +410,37 @@ states/jump/node = SubResource("AnimationNodeAnimation_eoj8y")
 states/jump/position = Vector2(601, 90)
 states/ribbit/node = SubResource("AnimationNodeAnimation_k8pfn")
 states/ribbit/position = Vector2(874, 15)
+"states/ribbit 2/node" = SubResource("AnimationNodeAnimation_x5rk5")
+"states/ribbit 2/position" = Vector2(1398, 78)
 states/run/node = SubResource("AnimationNodeAnimation_cjtb3")
 states/run/position = Vector2(710, 97)
-transitions = ["Start", "idle1", SubResource("AnimationNodeStateMachineTransition_uu10c"), "idle1", "idle2", SubResource("AnimationNodeStateMachineTransition_6k74j"), "idle2", "idle3", SubResource("AnimationNodeStateMachineTransition_kfnws"), "idle3", "jump", SubResource("AnimationNodeStateMachineTransition_ibsxe"), "jump", "run", SubResource("AnimationNodeStateMachineTransition_m1d0i"), "run", "jump", SubResource("AnimationNodeStateMachineTransition_rs5rh"), "jump", "idle3", SubResource("AnimationNodeStateMachineTransition_30o6n"), "idle3", "idle2", SubResource("AnimationNodeStateMachineTransition_xosqm"), "idle2", "idle1", SubResource("AnimationNodeStateMachineTransition_t81jd")]
+states/sit/node = SubResource("AnimationNodeAnimation_pudxr")
+states/sit/position = Vector2(1249, 87)
+states/sit_up/node = SubResource("AnimationNodeAnimation_jg3rj")
+states/sit_up/position = Vector2(1519, 83)
+states/sleep/node = SubResource("AnimationNodeAnimation_yygk4")
+states/sleep/position = Vector2(981, 89)
+states/surprise/node = SubResource("AnimationNodeAnimation_jn2ad")
+states/surprise/position = Vector2(1685, 77)
+transitions = ["Start", "idle1", SubResource("AnimationNodeStateMachineTransition_uu10c"), "idle1", "idle2", SubResource("AnimationNodeStateMachineTransition_6k74j"), "idle2", "idle3", SubResource("AnimationNodeStateMachineTransition_kfnws"), "idle3", "jump", SubResource("AnimationNodeStateMachineTransition_ibsxe"), "jump", "run", SubResource("AnimationNodeStateMachineTransition_m1d0i"), "run", "jump", SubResource("AnimationNodeStateMachineTransition_rs5rh"), "jump", "idle3", SubResource("AnimationNodeStateMachineTransition_30o6n"), "idle3", "idle2", SubResource("AnimationNodeStateMachineTransition_xosqm"), "idle2", "idle1", SubResource("AnimationNodeStateMachineTransition_t81jd"), "run", "get_down", SubResource("AnimationNodeStateMachineTransition_q4b6l"), "get_down", "sleep", SubResource("AnimationNodeStateMachineTransition_78wqr"), "sleep", "get_up", SubResource("AnimationNodeStateMachineTransition_uxnr3"), "get_up", "sit", SubResource("AnimationNodeStateMachineTransition_nq4yk"), "sit", "ribbit 2", SubResource("AnimationNodeStateMachineTransition_b301c"), "ribbit 2", "sit_up", SubResource("AnimationNodeStateMachineTransition_a4r7d"), "sit_up", "surprise", SubResource("AnimationNodeStateMachineTransition_eeu52"), "surprise", "sit_up", SubResource("AnimationNodeStateMachineTransition_w0m61"), "sit_up", "ribbit 2", SubResource("AnimationNodeStateMachineTransition_moto4"), "ribbit 2", "sit", SubResource("AnimationNodeStateMachineTransition_bnyna"), "sit", "get_up", SubResource("AnimationNodeStateMachineTransition_valfv"), "get_up", "sleep", SubResource("AnimationNodeStateMachineTransition_jsgv4"), "sleep", "get_down", SubResource("AnimationNodeStateMachineTransition_glqi3"), "get_down", "run", SubResource("AnimationNodeStateMachineTransition_ao0dt")]
+graph_offset = Vector2(960, -48)
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_o0kpo"]
 
 [node name="NPCFrog" type="CharacterBody2D" unique_id=2026523039]
 script = ExtResource("1_m75om")
+skins = Array[Texture2D]([ExtResource("2_jats0"), ExtResource("3_pudxr"), ExtResource("5_yygk4")])
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=594722287]
+y_sort_enabled = true
 position = Vector2(0, -8)
-texture = ExtResource("2_jats0")
+texture = ExtResource("4_jg3rj")
 hframes = 16
 vframes = 23
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=103795892]
-position = Vector2(0, -8)
+position = Vector2(-0.5, -2.75)
+shape = SubResource("RectangleShape2D_pudxr")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=788439980]
 libraries/ = SubResource("AnimationLibrary_cjtb3")
@@ -356,3 +448,7 @@ libraries/ = SubResource("AnimationLibrary_cjtb3")
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=201204700]
 tree_root = SubResource("AnimationNodeStateMachine_5r1h6")
 anim_player = NodePath("../AnimationPlayer")
+
+[node name="BTPlayer" type="BTPlayer" parent="." unique_id=1430000598]
+behavior_tree = ExtResource("3_jats0")
+blackboard_plan = SubResource("BlackboardPlan_o0kpo")

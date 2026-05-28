@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c84uetoucn7gd"
+path="res://.godot/imported/flute_4.wav-70342ff66417109d081e0aec0381a327.sample"
+
+[deps]
+
+source_file="res://assets/extras/Sprout Sorry pack/Audio/flute_4.wav"
+dest_files=["res://.godot/imported/flute_4.wav-70342ff66417109d081e0aec0381a327.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
