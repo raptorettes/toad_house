@@ -40,7 +40,7 @@ anim_name = "sit_up"
 [sub_resource type="BTSequence" id="BTSequence_rjxxr"]
 custom_name = "Seq - sing"
 children = [SubResource("BTAction_jgiin"), SubResource("BTAction_wa1xh"), SubResource("BTAction_kqacg")]
-metadata/_weight_ = 1.9342330848157623
+metadata/_weight_ = 1.9342330848157625
 
 [sub_resource type="BTAction" id="BTAction_irpd2"]
 script = ExtResource("3_o0e6g")
