@@ -1,8 +1,32 @@
 [gd_scene format=3 uid="uid://cfc16bfmxdlt1"]
 
 [ext_resource type="PackedScene" uid="uid://bl265i512mxju" path="res://characters/frog.tscn" id="1_s3esy"]
+[ext_resource type="PackedScene" uid="uid://clr5yak66yj4p" path="res://characters/frog_NPC.tscn" id="2_72e8q"]
+
+[sub_resource type="TileSet" id="TileSet_72e8q"]
 
 [node name="Node2D" type="Node2D" unique_id=1472344536]
 
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1274972667]
+tile_set = SubResource("TileSet_72e8q")
+
 [node name="Frog" parent="." unique_id=2026523039 instance=ExtResource("1_s3esy")]
 position = Vector2(36, 165)
+
+[node name="NPCFrog" parent="." unique_id=2132761986 instance=ExtResource("2_72e8q")]
+position = Vector2(159, 151)
+
+[node name="NPCFrog2" parent="." unique_id=1322553554 instance=ExtResource("2_72e8q")]
+position = Vector2(116, 215)
+
+[node name="NPCFrog3" parent="." unique_id=540145951 instance=ExtResource("2_72e8q")]
+position = Vector2(248, 149)
+
+[node name="NPCFrog4" parent="." unique_id=855383191 instance=ExtResource("2_72e8q")]
+position = Vector2(229, 90)
+
+[node name="NPCFrog5" parent="." unique_id=797017787 instance=ExtResource("2_72e8q")]
+position = Vector2(221, 256)
+
+[node name="NPCFrog6" parent="." unique_id=1108971915 instance=ExtResource("2_72e8q")]
+position = Vector2(139, 83)
