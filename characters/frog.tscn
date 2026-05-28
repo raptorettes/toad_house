@@ -3,6 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://d0bsus23cht8w" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog 1/Frog.png" id="1_jng8l"]
 [ext_resource type="Script" uid="uid://ckdtf3dywb0w3" path="res://scripts/frog.gd" id="1_yoiyo"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yoiyo"]
+size = Vector2(9.5, 3.5)
+
 [sub_resource type="Animation" id="Animation_yoiyo"]
 length = 0.001
 tracks/0/type = "value"
@@ -349,7 +352,8 @@ hframes = 16
 vframes = 23
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=103795892]
-position = Vector2(0, -8)
+position = Vector2(0.25, -2.25)
+shape = SubResource("RectangleShape2D_yoiyo")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=788439980]
 libraries/ = SubResource("AnimationLibrary_cjtb3")

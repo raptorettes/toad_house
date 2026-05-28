@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://braroq1xiow5g"
-path="res://.godot/imported/Fox.png-411cd762020d6edf540a055ad78c3032.ctex"
+uid="uid://cgmbmves6x621"
+path="res://.godot/imported/Fox_white.png-23e693d194909195cdc7802d9f424332.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Cute Foxes -Pixel Art Asset Pack/Cute Foxes -Pixel Art Asset Pack/Fox 4/Fox.png"
-dest_files=["res://.godot/imported/Fox.png-411cd762020d6edf540a055ad78c3032.ctex"]
+source_file="res://assets/sprites/Cute Foxes -Pixel Art Asset Pack/Cute Foxes -Pixel Art Asset Pack/Fox_white.png"
+dest_files=["res://.godot/imported/Fox_white.png-23e693d194909195cdc7802d9f424332.ctex"]
 
 [params]
 

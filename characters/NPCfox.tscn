@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bdh4jjev4etni"]
+
+[ext_resource type="Script" uid="uid://cvn17xkdxb83n" path="res://scripts/np_cfox.gd" id="1_mpa4e"]
+[ext_resource type="Texture2D" uid="uid://biwxb3esewvf5" path="res://assets/sprites/Cute Foxes -Pixel Art Asset Pack/Cute Foxes -Pixel Art Asset Pack/Fox_orange.png" id="2_5tg0g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_21ucc"]
+size = Vector2(10, 8)
+
+[sub_resource type="Animation" id="Animation_5tg0g"]
+resource_name = "idle1"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_21ucc"]
+_data = {
+&"idle1": SubResource("Animation_5tg0g")
+}
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_mpa4e"]
+
+[node name="Fox" type="CharacterBody2D" unique_id=1841564767]
+script = ExtResource("1_mpa4e")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1934541071]
+position = Vector2(0, -9.5)
+texture = ExtResource("2_5tg0g")
+hframes = 8
+vframes = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=569044076]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_21ucc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=601708217]
+libraries/ = SubResource("AnimationLibrary_21ucc")
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=500788166]
+
+[node name="BTPlayer" type="BTPlayer" parent="." unique_id=1705328182]
+blackboard_plan = SubResource("BlackboardPlan_mpa4e")
