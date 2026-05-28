@@ -429,7 +429,7 @@ graph_offset = Vector2(960, -48)
 
 [node name="NPCFrog" type="CharacterBody2D" unique_id=2026523039]
 script = ExtResource("1_m75om")
-skins = Array[Texture2D]([ExtResource("2_jats0"), ExtResource("3_pudxr"), ExtResource("4_jg3rj"), ExtResource("5_yygk4")])
+skins = Array[Texture2D]([ExtResource("2_jats0"), ExtResource("3_pudxr"), ExtResource("5_yygk4")])
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=594722287]
 y_sort_enabled = true
