@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://clr5yak66yj4p"]
 
 [ext_resource type="Script" uid="uid://cm1xgpllwg071" path="res://scripts/NPCfrog.gd" id="1_m75om"]
-[ext_resource type="Texture2D" uid="uid://n0g4ms0hdx07" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog 3/Frog.png" id="2_jats0"]
+[ext_resource type="Texture2D" uid="uid://d0bsus23cht8w" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog 1/Frog.png" id="2_jats0"]
 [ext_resource type="BehaviorTree" uid="uid://6kqtn5rfa14h" path="res://characters/npc_frog.tres" id="3_jats0"]
+[ext_resource type="Texture2D" uid="uid://nawy1drko0ij" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog 2/Frog.png" id="3_pudxr"]
+[ext_resource type="Texture2D" uid="uid://n0g4ms0hdx07" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog 3/Frog.png" id="4_jg3rj"]
+[ext_resource type="Texture2D" uid="uid://c35rja87ca027" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog 4/Frog.png" id="5_yygk4"]
 
 [sub_resource type="Animation" id="Animation_yoiyo"]
 length = 0.001
@@ -407,10 +410,12 @@ graph_offset = Vector2(960, -48)
 
 [node name="NPCFrog" type="CharacterBody2D" unique_id=2026523039]
 script = ExtResource("1_m75om")
+skins = Array[Texture2D]([ExtResource("2_jats0"), ExtResource("3_pudxr"), ExtResource("4_jg3rj"), ExtResource("5_yygk4")])
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=594722287]
+y_sort_enabled = true
 position = Vector2(0, -8)
-texture = ExtResource("2_jats0")
+texture = ExtResource("4_jg3rj")
 hframes = 16
 vframes = 23
 
