@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bl265i512mxju" path="res://characters/frog.tscn" id="1_s3esy"]
 [ext_resource type="PackedScene" uid="uid://clr5yak66yj4p" path="res://characters/frog_NPC.tscn" id="2_72e8q"]
 [ext_resource type="AudioStream" uid="uid://ddur0n8wfxsrg" path="res://assets/music/lofi-journey.ogg" id="4_0rdsr"]
+[ext_resource type="PackedScene" uid="uid://di7nt2ddct2pf" path="res://characters/frog_BB_NPC.tscn" id="5_ipu61"]
 
 [node name="Main" type="Node2D" unique_id=1472344536]
 y_sort_enabled = true
@@ -49,13 +50,17 @@ tile_set = ExtResource("1_d2op2")
 [node name="LandPlants" type="TileMapLayer" parent="." unique_id=1619839650]
 tile_set = ExtResource("1_d2op2")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=472772489]
+stream = ExtResource("4_0rdsr")
+autoplay = true
+
 [node name="Node2D" type="Node2D" parent="." unique_id=554199078]
 
 [node name="Frog" parent="." unique_id=2026523039 instance=ExtResource("1_s3esy")]
 position = Vector2(75, 163)
 
 [node name="Camera2D" type="Camera2D" parent="Frog" unique_id=452618445]
-position = Vector2(121, -30)
+zoom = Vector2(2, 2)
 limit_left = -200
 limit_top = -150
 limit_right = 610
@@ -120,7 +125,38 @@ position = Vector2(221, 256)
 [node name="NPCFrog6" parent="." unique_id=1108971915 instance=ExtResource("2_72e8q")]
 position = Vector2(139, 83)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=472772489]
-stream = ExtResource("4_0rdsr")
+[node name="NPCFrog20" parent="." unique_id=1660157420 instance=ExtResource("2_72e8q")]
+position = Vector2(-11, 148)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2129367635]
+[node name="NPCFrog21" parent="." unique_id=919847749 instance=ExtResource("2_72e8q")]
+position = Vector2(100, 281)
+
+[node name="NPCFrog22" parent="." unique_id=1044399174 instance=ExtResource("2_72e8q")]
+position = Vector2(136, 286)
+
+[node name="NPCFrog23" parent="." unique_id=18848273 instance=ExtResource("2_72e8q")]
+position = Vector2(15, 92)
+
+[node name="NPCFrog24" parent="." unique_id=515901724 instance=ExtResource("2_72e8q")]
+position = Vector2(285, 228)
+
+[node name="NPCFrog25" parent="." unique_id=1169243707 instance=ExtResource("2_72e8q")]
+position = Vector2(283, 197)
+
+[node name="NPCFrog26" parent="." unique_id=387554177 instance=ExtResource("2_72e8q")]
+position = Vector2(359, 244)
+
+[node name="NPCFrogBB" parent="." unique_id=453794860 instance=ExtResource("5_ipu61")]
+position = Vector2(7, 165)
+
+[node name="NPCFrogBB2" parent="." unique_id=1789920663 instance=ExtResource("5_ipu61")]
+position = Vector2(17, 167)
+
+[node name="NPCFrogBB3" parent="." unique_id=1625987783 instance=ExtResource("5_ipu61")]
+position = Vector2(67, 175)
+
+[node name="NPCFrogBB4" parent="." unique_id=771500719 instance=ExtResource("5_ipu61")]
+position = Vector2(56, 169)
+
+[node name="NPCFrogBB5" parent="." unique_id=2025558380 instance=ExtResource("5_ipu61")]
+position = Vector2(50, 182)

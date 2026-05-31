@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://di7nt2ddct2pf"]
+
+[ext_resource type="Texture2D" uid="uid://drgils6hpmkx" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog 1/BabyFrog.png" id="1_a203g"]
+[ext_resource type="Script" uid="uid://dnlwap73xhh4g" path="res://scripts/frog_bb_npc.gd" id="1_ad41w"]
+[ext_resource type="BehaviorTree" uid="uid://brt5evkld2ywf" path="res://characters/npc_bb_frog.tres" id="2_swodx"]
+[ext_resource type="Texture2D" uid="uid://dofk026jhehgo" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog 2/BabyFrog.png" id="3_qhmh1"]
+[ext_resource type="Texture2D" uid="uid://ev12bpdj1xwm" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog 3/BabyFrog.png" id="4_py4ss"]
+[ext_resource type="Texture2D" uid="uid://din7amhtlqb0f" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog 4/BabyFrog.png" id="5_ewghj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pudxr"]
+size = Vector2(4, 2)
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_yynkp"]
+
+[sub_resource type="Animation" id="Animation_ad41w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_yynkp"]
+resource_name = "idle"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dobry"]
+resource_name = "rest"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qhmh1"]
+_data = {
+&"RESET": SubResource("Animation_ad41w"),
+&"idle": SubResource("Animation_yynkp"),
+&"rest": SubResource("Animation_dobry")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qhmh1"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_py4ss"]
+animation = &"rest"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ewghj"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x0swm"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_82eb3"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_qhmh1"]
+states/idle/node = SubResource("AnimationNodeAnimation_qhmh1")
+states/idle/position = Vector2(291, 97)
+states/rest/node = SubResource("AnimationNodeAnimation_py4ss")
+states/rest/position = Vector2(398, 103)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_ewghj"), "idle", "rest", SubResource("AnimationNodeStateMachineTransition_x0swm"), "rest", "idle", SubResource("AnimationNodeStateMachineTransition_82eb3")]
+
+[node name="NPCFrogBB" type="CharacterBody2D" unique_id=2026523039]
+script = ExtResource("1_ad41w")
+skins = Array[Texture2D]([ExtResource("1_a203g"), ExtResource("3_qhmh1"), ExtResource("4_py4ss"), ExtResource("5_ewghj")])
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=594722287]
+y_sort_enabled = true
+position = Vector2(0, -8)
+texture = ExtResource("1_a203g")
+hframes = 4
+vframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=103795892]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_pudxr")
+
+[node name="BTPlayer" type="BTPlayer" parent="." unique_id=922362111]
+behavior_tree = ExtResource("2_swodx")
+blackboard_plan = SubResource("BlackboardPlan_yynkp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1654778623]
+libraries/ = SubResource("AnimationLibrary_qhmh1")
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1452031118]
+tree_root = SubResource("AnimationNodeStateMachine_qhmh1")
+anim_player = NodePath("../AnimationPlayer")

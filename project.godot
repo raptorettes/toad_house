@@ -8,6 +8,12 @@
 
 config_version=5
 
+[addons]
+
+script_name_on_top/hide_scripts_panel=false
+script_name_on_top/hide_bottom_bar=false
+script_name_on_top/show_bottom_bar_on_warning=true
+
 [application]
 
 config/name="toad-house"
@@ -17,8 +23,8 @@ config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=480
-window/size/viewport_height=270
+window/size/viewport_width=1080
+window/size/viewport_height=640
 window/size/mode=2
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_height"
@@ -26,7 +32,7 @@ window/stretch/scale_mode="integer"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/sprout_lands_tilemap/plugin.cfg")
+enabled=PackedStringArray("res://addons/inspector_tabs/plugin.cfg", "res://addons/script-name-on-top/plugin.cfg", "res://addons/smart-editor-plugin/plugin.cfg", "res://addons/sprout_lands_tilemap/plugin.cfg")
 
 [physics]
 
