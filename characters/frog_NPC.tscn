@@ -509,7 +509,7 @@ delay_in_seconds = "0.0"
 [node name="ToWander" type="Node" parent="StateChart/Root/Idle" unique_id=1527141493]
 script = ExtResource("14_w0m61")
 to = NodePath("../../Wander")
-delay_in_seconds = "4"
+delay_in_seconds = "6.0"
 
 [node name="Surpise" type="Node" parent="StateChart/Root" unique_id=838800894]
 script = ExtResource("13_eeu52")
@@ -533,7 +533,8 @@ metadata/_custom_type_script = "uid://488xerv8d0xh"
 [node name="ToIdle" type="Node" parent="StateChart/Root/Run" unique_id=91339952]
 script = ExtResource("14_w0m61")
 to = NodePath("../../Idle")
-delay_in_seconds = "4"
+event = &"nav_finished"
+delay_in_seconds = "0"
 
 [node name="Wander" type="Node" parent="StateChart/Root" unique_id=2054843971]
 script = ExtResource("13_eeu52")
@@ -541,7 +542,8 @@ script = ExtResource("13_eeu52")
 [node name="ToIdle" type="Node" parent="StateChart/Root/Wander" unique_id=2093479288]
 script = ExtResource("14_w0m61")
 to = NodePath("../../Idle")
-delay_in_seconds = "4"
+event = &"nav_finished"
+delay_in_seconds = "0"
 
 [node name="SurpriseArea" type="Area2D" parent="." unique_id=833771551]
 
@@ -553,6 +555,9 @@ shape = SubResource("CircleShape2D_b301c")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RunArea" unique_id=592000624]
 shape = SubResource("CircleShape2D_a4r7d")
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=655752050]
+debug_enabled = true
+
 [connection signal="state_entered" from="StateChart/Root/Idle" to="." method="_on_idle_state_entered"]
 [connection signal="state_entered" from="StateChart/Root/Surpise" to="." method="_on_surpise_state_entered"]
 [connection signal="state_entered" from="StateChart/Root/Run" to="." method="_on_run_state_entered"]
@@ -560,3 +565,4 @@ shape = SubResource("CircleShape2D_a4r7d")
 [connection signal="body_entered" from="SurpriseArea" to="." method="_on_surprise_area_body_entered"]
 [connection signal="body_exited" from="SurpriseArea" to="." method="_on_surprise_area_body_exited"]
 [connection signal="body_entered" from="RunArea" to="." method="_on_run_area_body_entered"]
+[connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
