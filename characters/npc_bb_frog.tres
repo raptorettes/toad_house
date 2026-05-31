@@ -1,0 +1,45 @@
+[gd_resource type="BehaviorTree" format=3 uid="uid://brt5evkld2ywf"]
+
+[ext_resource type="Script" uid="uid://dgglnul4jsxeu" path="res://ai/tasks/bt_play_anim_timed.gd" id="1_3km3r"]
+[ext_resource type="Script" uid="uid://dsaatknf8aasd" path="res://ai/tasks/bt_select_random_nearby_pos_cardinal.gd" id="2_cdrkh"]
+[ext_resource type="Script" uid="uid://c552njrfvkqr8" path="res://ai/tasks/bt_wander_bb.gd" id="3_cdrkh"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_swodx"]
+
+[sub_resource type="BTAction" id="BTAction_wcd2q"]
+custom_name = "rest"
+script = ExtResource("1_3km3r")
+anim_name = "rest"
+
+[sub_resource type="BTSequence" id="BTSequence_cdrkh"]
+children = [SubResource("BTAction_wcd2q")]
+
+[sub_resource type="BTAction" id="BTAction_3km3r"]
+custom_name = "idle"
+script = ExtResource("1_3km3r")
+anim_name = "idle"
+
+[sub_resource type="BTSequence" id="BTSequence_wcd2q"]
+children = [SubResource("BTAction_3km3r")]
+
+[sub_resource type="BTAction" id="BTAction_bwn28"]
+script = ExtResource("2_cdrkh")
+range_min = 10.0
+range_max = 20.0
+
+[sub_resource type="BTAction" id="BTAction_fd04e"]
+script = ExtResource("3_cdrkh")
+
+[sub_resource type="BTSequence" id="BTSequence_tfwy7"]
+children = [SubResource("BTAction_bwn28"), SubResource("BTAction_fd04e")]
+
+[sub_resource type="BTProbabilitySelector" id="BTProbabilitySelector_cdrkh"]
+children = [SubResource("BTSequence_cdrkh"), SubResource("BTSequence_wcd2q"), SubResource("BTSequence_tfwy7")]
+
+[sub_resource type="BTRepeat" id="BTRepeat_wnrjf"]
+forever = true
+children = [SubResource("BTProbabilitySelector_cdrkh")]
+
+[resource]
+blackboard_plan = SubResource("BlackboardPlan_swodx")
+root_task = SubResource("BTRepeat_wnrjf")
