@@ -23,10 +23,10 @@ func _tick(_delta: float) -> Status:
 	else:
 		direction = Vector2(0, sign(raw_direction.y))
 
-	if direction.x < 0:
-		frog.sprite.flip_h = true
-	elif direction.x > 0:
-		frog.sprite.flip_h = false
+	#if direction.x < 0:
+		#frog.sprite.flip_h = true
+	#elif direction.x > 0:
+		#frog.sprite.flip_h = false
 
 	frog.velocity = direction * frog.move_speed
 

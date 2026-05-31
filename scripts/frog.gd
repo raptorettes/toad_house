@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name player_frogge
 
 @export var move_speed: float = 70
 @onready var animation_tree = $AnimationTree

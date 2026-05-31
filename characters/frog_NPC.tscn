@@ -9,7 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://dm5hj1fweuwvc" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog_purple.png" id="6_q4b6l"]
 [ext_resource type="Texture2D" uid="uid://cgt8gtpxfuakj" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog_turq.png" id="7_78wqr"]
 [ext_resource type="Texture2D" uid="uid://bwp8sni5brcjg" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog_Lpurple.png" id="8_q4b6l"]
+[ext_resource type="PackedScene" uid="uid://bcwkugn6v3oy7" path="res://addons/godot_state_charts/utilities/state_chart_debugger.tscn" id="9_a4r7d"]
 [ext_resource type="Texture2D" uid="uid://dsudgkxi2grqr" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog_pink.png" id="9_uxnr3"]
+[ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="11_b301c"]
+[ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="12_a4r7d"]
+[ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="13_eeu52"]
+[ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="14_w0m61"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_78wqr"]
 load_path = "res://.godot/imported/Frog_yellow.png-fb95d55590505ff1f97968417254d812.ctex"
@@ -430,13 +435,28 @@ states/sleep/position = Vector2(981, 89)
 states/surprise/node = SubResource("AnimationNodeAnimation_jn2ad")
 states/surprise/position = Vector2(1685, 77)
 transitions = ["Start", "idle1", SubResource("AnimationNodeStateMachineTransition_uu10c"), "idle1", "idle2", SubResource("AnimationNodeStateMachineTransition_6k74j"), "idle2", "idle3", SubResource("AnimationNodeStateMachineTransition_kfnws"), "idle3", "jump", SubResource("AnimationNodeStateMachineTransition_ibsxe"), "jump", "run", SubResource("AnimationNodeStateMachineTransition_m1d0i"), "run", "jump", SubResource("AnimationNodeStateMachineTransition_rs5rh"), "jump", "idle3", SubResource("AnimationNodeStateMachineTransition_30o6n"), "idle3", "idle2", SubResource("AnimationNodeStateMachineTransition_xosqm"), "idle2", "idle1", SubResource("AnimationNodeStateMachineTransition_t81jd"), "run", "get_down", SubResource("AnimationNodeStateMachineTransition_q4b6l"), "get_down", "sleep", SubResource("AnimationNodeStateMachineTransition_78wqr"), "sleep", "get_up", SubResource("AnimationNodeStateMachineTransition_uxnr3"), "get_up", "sit", SubResource("AnimationNodeStateMachineTransition_nq4yk"), "sit", "ribbit 2", SubResource("AnimationNodeStateMachineTransition_b301c"), "ribbit 2", "sit_up", SubResource("AnimationNodeStateMachineTransition_a4r7d"), "sit_up", "surprise", SubResource("AnimationNodeStateMachineTransition_eeu52"), "surprise", "sit_up", SubResource("AnimationNodeStateMachineTransition_w0m61"), "sit_up", "ribbit 2", SubResource("AnimationNodeStateMachineTransition_moto4"), "ribbit 2", "sit", SubResource("AnimationNodeStateMachineTransition_bnyna"), "sit", "get_up", SubResource("AnimationNodeStateMachineTransition_valfv"), "get_up", "sleep", SubResource("AnimationNodeStateMachineTransition_jsgv4"), "sleep", "get_down", SubResource("AnimationNodeStateMachineTransition_glqi3"), "get_down", "run", SubResource("AnimationNodeStateMachineTransition_ao0dt")]
-graph_offset = Vector2(960, -48)
+graph_offset = Vector2(-4.2568507, -48)
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_o0kpo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b301c"]
+radius = 82.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a4r7d"]
+radius = 41.01219
 
 [node name="NPCFrog" type="CharacterBody2D" unique_id=2026523039]
 script = ExtResource("1_m75om")
 skins = Array[Texture2D]([ExtResource("2_jats0"), ExtResource("5_yygk4"), ExtResource("5_jn2ad"), ExtResource("6_q4b6l"), ExtResource("7_78wqr"), SubResource("CompressedTexture2D_78wqr"), ExtResource("9_uxnr3"), ExtResource("8_q4b6l")])
+
+[node name="Debugger" parent="." unique_id=561748866 instance=ExtResource("9_a4r7d")]
+visible = false
+offset_left = 23.0
+offset_top = -76.0
+offset_right = 300.0
+offset_bottom = 194.0
+scale = Vector2(0.5, 0.5)
+initial_node_to_watch = NodePath("../StateChart")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=594722287]
 y_sort_enabled = true
@@ -458,4 +478,85 @@ anim_player = NodePath("../AnimationPlayer")
 
 [node name="BTPlayer" type="BTPlayer" parent="." unique_id=1430000598]
 behavior_tree = ExtResource("3_jats0")
+active = false
 blackboard_plan = SubResource("BlackboardPlan_o0kpo")
+
+[node name="StateChart" type="Node" parent="." unique_id=1624130957]
+script = ExtResource("11_b301c")
+track_in_editor = true
+metadata/_custom_type_script = "uid://couw105c3bde4"
+
+[node name="Root" type="Node" parent="StateChart" unique_id=196020875]
+script = ExtResource("12_a4r7d")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateChart/Root" unique_id=142022832]
+script = ExtResource("13_eeu52")
+metadata/_custom_type_script = "uid://cytafq8i1y8qm"
+
+[node name="ToSurprise" type="Node" parent="StateChart/Root/Idle" unique_id=350762476]
+script = ExtResource("14_w0m61")
+to = NodePath("../../Surpise")
+event = &"character_nearby"
+delay_in_seconds = "0.0"
+
+[node name="ToRun" type="Node" parent="StateChart/Root/Idle" unique_id=1504066005]
+script = ExtResource("14_w0m61")
+to = NodePath("../../Run")
+event = &"character_too_close"
+delay_in_seconds = "0.0"
+
+[node name="ToWander" type="Node" parent="StateChart/Root/Idle" unique_id=1527141493]
+script = ExtResource("14_w0m61")
+to = NodePath("../../Wander")
+delay_in_seconds = "4"
+
+[node name="Surpise" type="Node" parent="StateChart/Root" unique_id=838800894]
+script = ExtResource("13_eeu52")
+
+[node name="ToRun" type="Node" parent="StateChart/Root/Surpise" unique_id=2003784079]
+script = ExtResource("14_w0m61")
+to = NodePath("../../Run")
+event = &"character_too_close"
+delay_in_seconds = "0.0"
+
+[node name="ToIdle" type="Node" parent="StateChart/Root/Surpise" unique_id=2044315757]
+script = ExtResource("14_w0m61")
+to = NodePath("../../Idle")
+event = &"character_left"
+delay_in_seconds = "0"
+
+[node name="Run" type="Node" parent="StateChart/Root" unique_id=1410180984]
+script = ExtResource("13_eeu52")
+metadata/_custom_type_script = "uid://488xerv8d0xh"
+
+[node name="ToIdle" type="Node" parent="StateChart/Root/Run" unique_id=91339952]
+script = ExtResource("14_w0m61")
+to = NodePath("../../Idle")
+delay_in_seconds = "4"
+
+[node name="Wander" type="Node" parent="StateChart/Root" unique_id=2054843971]
+script = ExtResource("13_eeu52")
+
+[node name="ToIdle" type="Node" parent="StateChart/Root/Wander" unique_id=2093479288]
+script = ExtResource("14_w0m61")
+to = NodePath("../../Idle")
+delay_in_seconds = "4"
+
+[node name="SurpriseArea" type="Area2D" parent="." unique_id=833771551]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SurpriseArea" unique_id=1907154494]
+shape = SubResource("CircleShape2D_b301c")
+
+[node name="RunArea" type="Area2D" parent="." unique_id=751060803]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RunArea" unique_id=592000624]
+shape = SubResource("CircleShape2D_a4r7d")
+
+[connection signal="state_entered" from="StateChart/Root/Idle" to="." method="_on_idle_state_entered"]
+[connection signal="state_entered" from="StateChart/Root/Surpise" to="." method="_on_surpise_state_entered"]
+[connection signal="state_entered" from="StateChart/Root/Run" to="." method="_on_run_state_entered"]
+[connection signal="state_entered" from="StateChart/Root/Wander" to="." method="_on_wander_state_entered"]
+[connection signal="body_entered" from="SurpriseArea" to="." method="_on_surprise_area_body_entered"]
+[connection signal="body_exited" from="SurpriseArea" to="." method="_on_surprise_area_body_exited"]
+[connection signal="body_entered" from="RunArea" to="." method="_on_run_area_body_entered"]
