@@ -1,9 +1,9 @@
 extends CharacterBody2D
 class_name npc_frogge
 
-@export var default_move_speed: float = 20.0
+@export var default_move_speed: float = 40.0
 @export var move_speed: float = 40.0
-@export var wander_radius: float = 60.0
+@export var wander_radius: float = 100.0
 
 @onready var animation_tree = $AnimationTree
 @onready var state_machine : AnimationNodeStateMachinePlayback = animation_tree.get("parameters/playback")
@@ -17,6 +17,7 @@ var home_position: Vector2
 @export var skins: Array[Texture2D] = []
 
 func _ready():
+	$StateChartDebugger.hide()
 	home_position = global_position
 	if skins.size() > 0:
 		sprite.texture = skins[randi() % skins.size()]
@@ -66,13 +67,14 @@ func _on_run_area_body_entered(body: Node2D) -> void:
 
 
 func _on_idle_state_entered() -> void:
+	move_speed = default_move_speed
 	state_machine.travel("idle%d" % randi_range(1,3))
 	velocity = Vector2.ZERO
 
 
 func _on_wander_state_entered() -> void:
 	#target = Vector2(global_position.x + randf_range(-50, 50), global_position.y + randf_range(-50, 50))
-	target = _get_navigable(Vector2(global_position.x + randf_range(-20, 20), global_position.y + randf_range(-20, 20)))
+	target = _get_navigable(Vector2(global_position.x + randf_range(wander_radius * -1, wander_radius), global_position.y + randf_range(wander_radius * -1, wander_radius)))
 	_go_to(target)
 
 func _get_navigable(pos: Vector2) -> Vector2:
@@ -93,5 +95,6 @@ func _on_navigation_agent_2d_navigation_finished() -> void:
 
 
 func _on_flee_state_entered() -> void:
+	move_speed = default_move_speed * 1.5
 	var flee_dir: Vector2 = (global_position - flee_body.global_position)
 	target = _get_navigable(global_position + flee_dir * 2)
