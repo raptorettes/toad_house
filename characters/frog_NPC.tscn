@@ -20,7 +20,7 @@
 load_path = "res://.godot/imported/Frog_yellow.png-fb95d55590505ff1f97968417254d812.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pudxr"]
-size = Vector2(9, 4.5)
+size = Vector2(9, 5)
 
 [sub_resource type="Animation" id="Animation_yoiyo"]
 length = 0.001
@@ -105,6 +105,7 @@ tracks/0/keys = {
 resource_name = "idle1"
 length = 0.5
 loop_mode = 1
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -122,6 +123,7 @@ tracks/0/keys = {
 resource_name = "idle2"
 length = 0.6
 loop_mode = 1
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -139,6 +141,7 @@ tracks/0/keys = {
 resource_name = "idle3"
 length = 1.8
 loop_mode = 1
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -285,7 +288,8 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_t81jd"]
 resource_name = "surprise"
-length = 0.8
+length = 1.5
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -446,16 +450,17 @@ radius = 82.0
 radius = 41.01219
 
 [node name="NPCFrog" type="CharacterBody2D" unique_id=2026523039]
+collision_layer = 2
+collision_mask = 0
 script = ExtResource("1_m75om")
 skins = Array[Texture2D]([ExtResource("2_jats0"), ExtResource("5_yygk4"), ExtResource("5_jn2ad"), ExtResource("6_q4b6l"), ExtResource("7_78wqr"), SubResource("CompressedTexture2D_78wqr"), ExtResource("9_uxnr3"), ExtResource("8_q4b6l")])
 
-[node name="Debugger" parent="." unique_id=561748866 instance=ExtResource("9_a4r7d")]
-visible = false
-offset_left = 23.0
-offset_top = -76.0
-offset_right = 300.0
-offset_bottom = 194.0
-scale = Vector2(0.5, 0.5)
+[node name="StateChartDebugger" parent="." unique_id=21243768 instance=ExtResource("9_a4r7d")]
+offset_left = 92.0
+offset_top = -45.0
+offset_right = 333.0
+offset_bottom = 328.0
+scale = Vector2(0.25, 0.25)
 initial_node_to_watch = NodePath("../StateChart")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=594722287]
@@ -466,11 +471,12 @@ hframes = 16
 vframes = 23
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=103795892]
-position = Vector2(-0.5, -2.75)
+position = Vector2(-1, -3)
 shape = SubResource("RectangleShape2D_pudxr")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=788439980]
 libraries/ = SubResource("AnimationLibrary_cjtb3")
+playback_auto_capture = false
 
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=201204700]
 tree_root = SubResource("AnimationNodeStateMachine_5r1h6")
@@ -500,9 +506,9 @@ to = NodePath("../../Surpise")
 event = &"character_nearby"
 delay_in_seconds = "0.0"
 
-[node name="ToRun" type="Node" parent="StateChart/Root/Idle" unique_id=1504066005]
+[node name="ToFlee" type="Node" parent="StateChart/Root/Idle" unique_id=1504066005]
 script = ExtResource("14_w0m61")
-to = NodePath("../../Run")
+to = NodePath("../../Flee")
 event = &"character_too_close"
 delay_in_seconds = "0.0"
 
@@ -514,9 +520,9 @@ delay_in_seconds = "6.0"
 [node name="Surpise" type="Node" parent="StateChart/Root" unique_id=838800894]
 script = ExtResource("13_eeu52")
 
-[node name="ToRun" type="Node" parent="StateChart/Root/Surpise" unique_id=2003784079]
+[node name="ToFlee" type="Node" parent="StateChart/Root/Surpise" unique_id=2003784079]
 script = ExtResource("14_w0m61")
-to = NodePath("../../Run")
+to = NodePath("../../Flee")
 event = &"character_too_close"
 delay_in_seconds = "0.0"
 
@@ -526,6 +532,14 @@ to = NodePath("../../Idle")
 event = &"character_left"
 delay_in_seconds = "0"
 
+[node name="Flee" type="Node" parent="StateChart/Root" unique_id=43300882]
+script = ExtResource("13_eeu52")
+
+[node name="ToRun" type="Node" parent="StateChart/Root/Flee" unique_id=162580941]
+script = ExtResource("14_w0m61")
+to = NodePath("../../Run")
+delay_in_seconds = "0.0"
+
 [node name="Run" type="Node" parent="StateChart/Root" unique_id=1410180984]
 script = ExtResource("13_eeu52")
 metadata/_custom_type_script = "uid://488xerv8d0xh"
@@ -534,6 +548,12 @@ metadata/_custom_type_script = "uid://488xerv8d0xh"
 script = ExtResource("14_w0m61")
 to = NodePath("../../Idle")
 event = &"nav_finished"
+delay_in_seconds = "0"
+
+[node name="ToFlee" type="Node" parent="StateChart/Root/Run" unique_id=1523949688]
+script = ExtResource("14_w0m61")
+to = NodePath("../../Flee")
+event = &"character_too_close"
 delay_in_seconds = "0"
 
 [node name="Wander" type="Node" parent="StateChart/Root" unique_id=2054843971]
@@ -546,20 +566,28 @@ event = &"nav_finished"
 delay_in_seconds = "0"
 
 [node name="SurpriseArea" type="Area2D" parent="." unique_id=833771551]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SurpriseArea" unique_id=1907154494]
 shape = SubResource("CircleShape2D_b301c")
 
 [node name="RunArea" type="Area2D" parent="." unique_id=751060803]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RunArea" unique_id=592000624]
 shape = SubResource("CircleShape2D_a4r7d")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=655752050]
+path_desired_distance = 10.0
+path_postprocessing = 1
+radius = 30.0
+neighbor_distance = 100.0
+max_neighbors = 3
 debug_enabled = true
 
 [connection signal="state_entered" from="StateChart/Root/Idle" to="." method="_on_idle_state_entered"]
 [connection signal="state_entered" from="StateChart/Root/Surpise" to="." method="_on_surpise_state_entered"]
+[connection signal="state_entered" from="StateChart/Root/Flee" to="." method="_on_flee_state_entered"]
 [connection signal="state_entered" from="StateChart/Root/Run" to="." method="_on_run_state_entered"]
 [connection signal="state_entered" from="StateChart/Root/Wander" to="." method="_on_wander_state_entered"]
 [connection signal="body_entered" from="SurpriseArea" to="." method="_on_surprise_area_body_entered"]

@@ -26,21 +26,26 @@ func _ready():
 
 
 func _physics_process(_delta):
-	#if nav_agent.has_ta
-	#
+
 	var next = nav_agent.get_next_path_position()
 	velocity = (next - global_position).normalized() * move_speed
+
+	if not nav_agent.is_navigation_finished():
+		if velocity.x < 0.0:
+			sprite.flip_h = true
+		elif velocity.x >= 0:
+			sprite.flip_h = false
+	else:
+		sprite.flip_h = false
+		velocity = Vector2.ZERO
 	move_and_slide()
+	
 		
 func is_good_position(pos: Vector2) -> bool:
 	return pos.distance_to(home_position) <= wander_radius
 
 
 func _on_run_state_entered() -> void:
-	
-	var flee_dir: Vector2 = (global_position - flee_body.global_position)
-	#target = global_position + flee_dir * 20
-	target = _get_navigable(global_position + flee_dir * 20)
 
 	_go_to(target)
 	
@@ -63,12 +68,11 @@ func _on_run_area_body_entered(body: Node2D) -> void:
 func _on_idle_state_entered() -> void:
 	state_machine.travel("idle%d" % randi_range(1,3))
 	velocity = Vector2.ZERO
-	flee_body = null
 
 
 func _on_wander_state_entered() -> void:
 	#target = Vector2(global_position.x + randf_range(-50, 50), global_position.y + randf_range(-50, 50))
-	target = _get_navigable(Vector2(global_position.x + randf_range(-50, 50), global_position.y + randf_range(-50, 50)))
+	target = _get_navigable(Vector2(global_position.x + randf_range(-20, 20), global_position.y + randf_range(-20, 20)))
 	_go_to(target)
 
 func _get_navigable(pos: Vector2) -> Vector2:
@@ -77,17 +81,17 @@ func _get_navigable(pos: Vector2) -> Vector2:
 func _go_to(pos: Vector2) -> void:
 	nav_agent.target_position = pos
 	state_machine.travel("run")
-	
-	if velocity.x < 0:
-		sprite.flip_h = true
-	elif velocity.x > 0:
-		sprite.flip_h = false
 
 func _on_surprise_area_body_exited(body: Node2D) -> void:
 	if body is player_frogge:
-		flee_body = null
+
 		$StateChart.send_event("character_left")
 
 
 func _on_navigation_agent_2d_navigation_finished() -> void:
 	$StateChart.send_event("nav_finished")
+
+
+func _on_flee_state_entered() -> void:
+	var flee_dir: Vector2 = (global_position - flee_body.global_position)
+	target = _get_navigable(global_position + flee_dir * 2)

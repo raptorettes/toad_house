@@ -23,17 +23,19 @@ config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=1080
-window/size/viewport_height=640
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/size/mode=2
 window/stretch/mode="viewport"
-window/stretch/aspect="keep_height"
 window/stretch/scale_mode="integer"
-window/vsync/vsync_mode=2
 
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_state_charts/plugin.cfg", "res://addons/inspector_tabs/plugin.cfg", "res://addons/script-name-on-top/plugin.cfg", "res://addons/smart-editor-plugin/plugin.cfg", "res://addons/sprout_lands_tilemap/plugin.cfg")
+
+[global_group]
+
+nav_group=""
 
 [input]
 
