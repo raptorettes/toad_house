@@ -74,7 +74,7 @@ collision_enabled = false
 position = Vector2(75, 163)
 
 [node name="Camera2D" type="Camera2D" parent="Frog" unique_id=452618445]
-zoom = Vector2(3, 3)
+zoom = Vector2(3.5, 3.5)
 limit_enabled = false
 limit_left = -200
 limit_top = -150

@@ -15,7 +15,7 @@ autoplay = true
 
 [node name="BGFrogs" type="AudioStreamPlayer" parent="." unique_id=1913715674]
 stream = ExtResource("3_njtn3")
-volume_db = -10.0
+volume_db = -5.0
 autoplay = true
 
 [node name="BGFrogs2" type="AudioStreamPlayer" parent="." unique_id=428157858]
