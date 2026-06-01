@@ -21,6 +21,10 @@ run/main_scene="uid://cfc16bfmxdlt1"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+AudioManager="*uid://b8p2piq6wvkv7"
+
 [display]
 
 window/size/viewport_width=1920
@@ -36,6 +40,7 @@ enabled=PackedStringArray("res://addons/godot_state_charts/plugin.cfg", "res://a
 [global_group]
 
 nav_group=""
+water=""
 
 [input]
 

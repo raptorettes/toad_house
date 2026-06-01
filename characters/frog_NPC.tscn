@@ -456,6 +456,7 @@ script = ExtResource("1_m75om")
 skins = Array[Texture2D]([ExtResource("2_jats0"), ExtResource("5_yygk4"), ExtResource("5_jn2ad"), ExtResource("6_q4b6l"), ExtResource("7_78wqr"), SubResource("CompressedTexture2D_78wqr"), ExtResource("9_uxnr3"), ExtResource("8_q4b6l")])
 
 [node name="StateChartDebugger" parent="." unique_id=21243768 instance=ExtResource("9_a4r7d")]
+visible = false
 offset_left = 92.0
 offset_top = -45.0
 offset_right = 333.0

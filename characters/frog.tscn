@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ckdtf3dywb0w3" path="res://scripts/frog.gd" id="1_yoiyo"]
 [ext_resource type="Texture2D" uid="uid://n0g4ms0hdx07" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog 3/Frog.png" id="2_yoiyo"]
+[ext_resource type="AudioStream" uid="uid://qt5b3veaace1" path="res://assets/music/splash_fx.mp3" id="3_qcyj3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yoiyo"]
 size = Vector2(9.5, 3.5)
@@ -362,3 +363,7 @@ libraries/ = SubResource("AnimationLibrary_cjtb3")
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=201204700]
 tree_root = SubResource("AnimationNodeStateMachine_5r1h6")
 anim_player = NodePath("../AnimationPlayer")
+
+[node name="WaterFX" type="AudioStreamPlayer" parent="." unique_id=722723687]
+stream = ExtResource("3_qcyj3")
+volume_db = -13.0
