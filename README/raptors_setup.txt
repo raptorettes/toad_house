@@ -1,0 +1,19 @@
+# PLUGINS
+Godot State Charts
+LimboAI
+Inspector Tabs
+Smart Editor
+
+# CONVENTIONS
+Use Navigation Region 2d so NPCs are always navigating.
+State Charts for NPC states - Idle, Run, Wander, Flee, Surprise
+Behavior Trees for what characters do in those states and how they interact with the environment
+
+
+# NPC SETUP
+NPC's use:
+Godot State Charts
+Navigation Agent
+Limbo Behavior Tree
+Inherit NPC_wander base class
+---

@@ -74,14 +74,14 @@ collision_enabled = false
 position = Vector2(75, 163)
 
 [node name="Camera2D" type="Camera2D" parent="Frog" unique_id=452618445]
-zoom = Vector2(3.5, 3.5)
+zoom = Vector2(2, 2)
 limit_enabled = false
 limit_left = -200
 limit_top = -150
 limit_right = 610
 limit_bottom = 460
 position_smoothing_enabled = true
-position_smoothing_speed = 2.0
+position_smoothing_speed = 1.0
 
 [node name="NPCFrog7" parent="." unique_id=983401762 instance=ExtResource("2_72e8q")]
 position = Vector2(31, 147)

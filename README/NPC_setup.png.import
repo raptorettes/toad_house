@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c35rja87ca027"
-path="res://.godot/imported/Frog.png-0357e94a27ea07a99a26631cf03fa674.ctex"
+uid="uid://da1y81vo2prol"
+path="res://.godot/imported/NPC_setup.png-254cbd0f9987c9ebad50f209741591d3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog 4/Frog.png"
-dest_files=["res://.godot/imported/Frog.png-0357e94a27ea07a99a26631cf03fa674.ctex"]
+source_file="res://README/NPC_setup.png"
+dest_files=["res://.godot/imported/NPC_setup.png-254cbd0f9987c9ebad50f209741591d3.ctex"]
 
 [params]
 

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bl265i512mxju"]
 
 [ext_resource type="Script" uid="uid://ckdtf3dywb0w3" path="res://scripts/frog.gd" id="1_yoiyo"]
-[ext_resource type="Texture2D" uid="uid://n0g4ms0hdx07" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog 3/Frog.png" id="2_yoiyo"]
+[ext_resource type="Texture2D" uid="uid://d4go55tr4d0v6" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog_dgreen.png" id="2_qcyj3"]
 [ext_resource type="AudioStream" uid="uid://qt5b3veaace1" path="res://assets/music/splash_fx.mp3" id="3_qcyj3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yoiyo"]
@@ -191,6 +191,7 @@ tracks/0/keys = {
 resource_name = "run"
 length = 0.5
 loop_mode = 1
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -346,10 +347,11 @@ transitions = ["Start", "idle1", SubResource("AnimationNodeStateMachineTransitio
 [node name="Frog" type="CharacterBody2D" unique_id=2026523039]
 y_sort_enabled = true
 script = ExtResource("1_yoiyo")
+move_speed = 50.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=594722287]
 position = Vector2(0, -8)
-texture = ExtResource("2_yoiyo")
+texture = ExtResource("2_qcyj3")
 hframes = 16
 vframes = 23
 

@@ -1,23 +1,21 @@
 [gd_scene format=3 uid="uid://clr5yak66yj4p"]
 
-[ext_resource type="Script" uid="uid://cm1xgpllwg071" path="res://scripts/NPCfrog.gd" id="1_m75om"]
-[ext_resource type="Texture2D" uid="uid://d0bsus23cht8w" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog 1/Frog.png" id="2_jats0"]
+[ext_resource type="Script" uid="uid://bklmbmaxsfoe5" path="res://scripts/NPCfrog2.gd" id="1_yygk4"]
 [ext_resource type="BehaviorTree" uid="uid://6kqtn5rfa14h" path="res://characters/npc_frog.tres" id="3_jats0"]
-[ext_resource type="Texture2D" uid="uid://n0g4ms0hdx07" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog 3/Frog.png" id="4_jg3rj"]
+[ext_resource type="Texture2D" uid="uid://d4go55tr4d0v6" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog_dgreen.png" id="3_moto4"]
+[ext_resource type="Texture2D" uid="uid://d2ewyu740tkpk" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog_ggreen.png" id="4_bnyna"]
+[ext_resource type="Texture2D" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog 3/Frog.png" id="4_jg3rj"]
 [ext_resource type="Texture2D" uid="uid://dyyikpoyvd12s" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog_blue.png" id="5_jn2ad"]
-[ext_resource type="Texture2D" uid="uid://c35rja87ca027" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog 4/Frog.png" id="5_yygk4"]
-[ext_resource type="Texture2D" uid="uid://dm5hj1fweuwvc" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog_purple.png" id="6_q4b6l"]
 [ext_resource type="Texture2D" uid="uid://cgt8gtpxfuakj" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog_turq.png" id="7_78wqr"]
 [ext_resource type="Texture2D" uid="uid://bwp8sni5brcjg" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog_Lpurple.png" id="8_q4b6l"]
 [ext_resource type="PackedScene" uid="uid://bcwkugn6v3oy7" path="res://addons/godot_state_charts/utilities/state_chart_debugger.tscn" id="9_a4r7d"]
+[ext_resource type="Texture2D" uid="uid://bhvf2gd52nrbg" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog_red.png" id="9_jsgv4"]
 [ext_resource type="Texture2D" uid="uid://dsudgkxi2grqr" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog_pink.png" id="9_uxnr3"]
 [ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="11_b301c"]
+[ext_resource type="Texture2D" uid="uid://bmetadaty43ft" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog_yellow.png" id="11_glqi3"]
 [ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="12_a4r7d"]
 [ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="13_eeu52"]
 [ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="14_w0m61"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_78wqr"]
-load_path = "res://.godot/imported/Frog_yellow.png-fb95d55590505ff1f97968417254d812.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pudxr"]
 size = Vector2(9, 5)
@@ -452,8 +450,8 @@ radius = 41.01219
 [node name="NPCFrog" type="CharacterBody2D" unique_id=2026523039]
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("1_m75om")
-skins = Array[Texture2D]([ExtResource("2_jats0"), ExtResource("5_yygk4"), ExtResource("5_jn2ad"), ExtResource("6_q4b6l"), ExtResource("7_78wqr"), SubResource("CompressedTexture2D_78wqr"), ExtResource("9_uxnr3"), ExtResource("8_q4b6l")])
+script = ExtResource("1_yygk4")
+skins = Array[Texture2D]([ExtResource("5_jn2ad"), ExtResource("3_moto4"), ExtResource("4_bnyna"), ExtResource("8_q4b6l"), ExtResource("9_uxnr3"), ExtResource("9_jsgv4"), ExtResource("7_78wqr"), ExtResource("11_glqi3")])
 
 [node name="StateChartDebugger" parent="." unique_id=21243768 instance=ExtResource("9_a4r7d")]
 visible = false

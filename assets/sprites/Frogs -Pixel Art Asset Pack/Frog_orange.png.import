@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nawy1drko0ij"
-path="res://.godot/imported/Frog.png-7915b63c3be925ad89307b01371b36c1.ctex"
+uid="uid://byndvf528puys"
+path="res://.godot/imported/Frog_orange.png-8521b4ac63876aa204a011ec6b30a5f4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog 2/Frog.png"
-dest_files=["res://.godot/imported/Frog.png-7915b63c3be925ad89307b01371b36c1.ctex"]
+source_file="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog_orange.png"
+dest_files=["res://.godot/imported/Frog_orange.png-8521b4ac63876aa204a011ec6b30a5f4.ctex"]
 
 [params]
 

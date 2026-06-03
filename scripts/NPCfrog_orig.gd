@@ -1,5 +1,5 @@
 extends CharacterBody2D
-class_name npc_frogge
+class_name npc_frogge2
 
 @export var default_move_speed: float = 40.0
 @export var move_speed: float = 40.0
