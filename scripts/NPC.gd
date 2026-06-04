@@ -15,11 +15,13 @@ var target: Vector2
 var home_position: Vector2
 
 @export var skins: Array[Texture2D] = []
+static var skin_index: int = 0
 
 func _ready() -> void:
 	home_position = global_position
 	if skins.size() > 0:
-		sprite.texture = skins[randi() % skins.size()]
+		sprite.texture = skins[skin_index % skins.size()]
+		skin_index += 1
 
 func _physics_process(_delta: float) -> void:
 	var next = nav_agent.get_next_path_position()

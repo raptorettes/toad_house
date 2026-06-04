@@ -661,6 +661,14 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x3p67"]
 size = Vector2(18, 12)
 
+[sub_resource type="Animation" id="Animation_5wo5d"]
+resource_name = "idle"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7cgeo"]
+_data = {
+&"idle": SubResource("Animation_5wo5d")
+}
+
 [node name="Capybara" type="CharacterBody2D" unique_id=2026523039]
 y_sort_enabled = true
 script = ExtResource("1_5wo5d")
@@ -673,3 +681,6 @@ animation = &"walk"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2012211560]
 position = Vector2(-1, 7)
 shape = SubResource("RectangleShape2D_x3p67")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1009213936]
+libraries/ = SubResource("AnimationLibrary_7cgeo")

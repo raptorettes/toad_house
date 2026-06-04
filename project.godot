@@ -17,7 +17,7 @@ script_name_on_top/show_bottom_bar_on_warning=true
 [application]
 
 config/name="toad-house"
-run/main_scene="uid://cfc16bfmxdlt1"
+run/main_scene="uid://y62j7pyn0s6u"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 

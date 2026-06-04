@@ -4,7 +4,7 @@
 [ext_resource type="BehaviorTree" uid="uid://6kqtn5rfa14h" path="res://characters/npc_frog.tres" id="3_jats0"]
 [ext_resource type="Texture2D" uid="uid://d4go55tr4d0v6" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog_dgreen.png" id="3_moto4"]
 [ext_resource type="Texture2D" uid="uid://d2ewyu740tkpk" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog_ggreen.png" id="4_bnyna"]
-[ext_resource type="Texture2D" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog 3/Frog.png" id="4_jg3rj"]
+[ext_resource type="Texture2D" uid="uid://ev12bpdj1xwm" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog 3/BabyFrog.png" id="4_jg3rj"]
 [ext_resource type="Texture2D" uid="uid://dyyikpoyvd12s" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog_blue.png" id="5_jn2ad"]
 [ext_resource type="Texture2D" uid="uid://cgt8gtpxfuakj" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog_turq.png" id="7_78wqr"]
 [ext_resource type="Texture2D" uid="uid://bwp8sni5brcjg" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog_Lpurple.png" id="8_q4b6l"]
