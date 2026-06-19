@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://bo7ucudah5qjb" path="res://assets/sprouts_maps_assets/full_ground_sets/Grass_Tile_layers3.png" id="8_fol0n"]
 [ext_resource type="Texture2D" uid="uid://d0srxj80xi2ip" path="res://assets/sprouts_maps_assets/full_ground_sets/Bush_Tiles.png" id="9_6ft6d"]
 [ext_resource type="Texture2D" uid="uid://k2fhowd0icq3" path="res://assets/sprouts_maps_assets/full_ground_sets/Grass_Tile_layers4.png" id="9_mjgcv"]
+[ext_resource type="Texture2D" uid="uid://bb26ethlyh7j5" path="res://assets/sprouts_maps_assets/old_ground_sets/Darker_Grass_Hill_Tiles_Slopes_v2.png" id="10_2t1js"]
+[ext_resource type="Texture2D" uid="uid://cqf05mc0q18te" path="res://assets/sprouts_maps_assets/old_ground_sets/Darker_Grass_Hill_Tiles_Slopes_v3.png" id="11_skbre"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8riqo"]
 texture = ExtResource("1_jy5r2")
@@ -6899,6 +6901,50 @@ texture = ExtResource("9_6ft6d")
 7:10/0 = 0
 8:10/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mxdgw"]
+texture = ExtResource("10_2t1js")
+0:0/0 = 0
+0:0/0/terrain_set = 0
+1:0/0 = 0
+1:0/0/terrain_set = 0
+2:0/0 = 0
+2:0/0/terrain_set = 0
+3:0/0 = 0
+3:0/0/terrain_set = 0
+4:0/0 = 0
+4:0/0/terrain_set = 0
+5:0/0 = 0
+5:0/0/terrain_set = 0
+0:1/0 = 0
+0:1/0/terrain_set = 0
+1:1/0 = 0
+1:1/0/terrain_set = 0
+2:1/0 = 0
+2:1/0/terrain_set = 0
+3:1/0 = 0
+3:1/0/terrain_set = 0
+4:1/0 = 0
+4:1/0/terrain_set = 0
+5:1/0 = 0
+5:1/0/terrain_set = 0
+2:2/0 = 0
+2:2/0/terrain_set = 0
+3:2/0 = 0
+3:2/0/terrain_set = 0
+4:2/0 = 0
+4:2/0/terrain_set = 0
+5:2/0 = 0
+5:2/0/terrain_set = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x6nlh"]
+texture = ExtResource("11_skbre")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mjgcv"]
 texture = ExtResource("2_nlqi4")
 0:0/0 = 0
@@ -7870,6 +7916,8 @@ terrain_set_0/terrain_15/name = "4greenSoil"
 terrain_set_0/terrain_15/color = Color(0.5, 0.25, 0.25, 1)
 terrain_set_0/terrain_16/name = "bushes"
 terrain_set_0/terrain_16/color = Color(0.5406251, 0.28222665, 0.46019417, 1)
+terrain_set_0/terrain_17/name = "2SlopegreenGrass"
+terrain_set_0/terrain_17/color = Color(0.5, 0.4375, 0.25, 1)
 terrain_set_1/mode = 0
 sources/0 = SubResource("TileSetAtlasSource_8riqo")
 sources/9 = SubResource("TileSetAtlasSource_mjgcv")
@@ -7881,3 +7929,5 @@ sources/14 = SubResource("TileSetAtlasSource_bv71k")
 sources/15 = SubResource("TileSetAtlasSource_bdvut")
 sources/16 = SubResource("TileSetAtlasSource_fol0n")
 sources/17 = SubResource("TileSetAtlasSource_gw5ii")
+sources/18 = SubResource("TileSetAtlasSource_mxdgw")
+sources/19 = SubResource("TileSetAtlasSource_x6nlh")

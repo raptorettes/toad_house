@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://srufwbnjmasd"]
+
+[ext_resource type="Script" uid="uid://byu8ftacdwu03" path="res://assets/dialogue/chars/portraits/chammy_default.gd" id="1_qii8a"]
+[ext_resource type="Texture2D" uid="uid://2lbwtash3snd" path="res://assets/dialogue/chars/portraits/Screenshot_20260604_230111.png" id="2_w2w1s"]
+
+[node name="ChammyDefault" type="Node2D" unique_id=1194376681]
+script = ExtResource("1_qii8a")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=956658790]
+texture = ExtResource("2_w2w1s")
