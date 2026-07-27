@@ -24,6 +24,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 JsBridge="*uid://x1i6r3dceyfw"
+AudioManager="*uid://b8p2piq6wvkv7"
+Title="*uid://y62j7pyn0s6u"
 
 [display]
 
