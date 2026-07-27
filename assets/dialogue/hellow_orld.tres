@@ -1,0 +1,94 @@
+[gd_resource type="Resource" script_class="SproutyDialogsDialogueData" format=3 uid="uid://ditkm3xmsldjv"]
+
+[ext_resource type="Script" uid="uid://cbjdca3iwlx36" path="res://addons/sprouty_dialogs/resources/dialogue_data.gd" id="1_a3bnt"]
+
+[resource]
+script = ExtResource("1_a3bnt")
+graph_data = {
+"1": {
+"start_node_1": {
+"node_index": 1,
+"node_type": "start_node",
+"offset": Vector2(-580, -80),
+"size": Vector2(180.00018, 96.99992),
+"start_id": "1",
+"to_dialog": "",
+"to_node": ["dialogue_node_1"]
+}
+},
+"unplugged_nodes": {
+"dialogue_node_1": {
+"char_expand": true,
+"character": "chambre_mayd",
+"dialog_key": "UNPLUGGED_DIALOG_1",
+"node_index": 1,
+"node_type": "dialogue_node",
+"offset": Vector2(-240, 0),
+"portrait": "Default",
+"size": Vector2(250.00012, 349.00037),
+"to_dialog": "",
+"to_node": ["options_node_1"]
+},
+"options_node_1": {
+"node_index": 1,
+"node_type": "options_node",
+"offset": Vector2(200, 220.01999),
+"options_conditions": [{
+"enabled": false,
+"first_var": {
+"metadata": {},
+"type": 40,
+"value": ""
+},
+"operator": 0,
+"second_var": {
+"metadata": {},
+"type": 40,
+"value": ""
+},
+"visibility": 0
+}, {
+"enabled": false,
+"first_var": {
+"metadata": {},
+"type": 40,
+"value": ""
+},
+"operator": 0,
+"second_var": {
+"metadata": {},
+"type": 40,
+"value": ""
+},
+"visibility": 0
+}],
+"options_keys": ["UNPLUGGED_OPT1_1", "UNPLUGGED_OPT1_2"],
+"size": Vector2(250.00012, 457),
+"to_dialog": "",
+"to_node": ["END", "END"]
+}
+}
+}
+dialogs = {
+"UNPLUGGED_DIALOG_1": {
+"default": "Oh no. No one is here.
+
+Seriously. No-one. Stop asking/
+
+That's it.
+
+I'm leaving.",
+"en": ""
+},
+"UNPLUGGED_OPT1_1": {
+"default": "Go on?"
+},
+"UNPLUGGED_OPT1_2": {
+"default": "Stay behind"
+}
+}
+characters = {
+"unplugged_nodes": {
+"chambre_mayd": 2107712697103880014
+}
+}

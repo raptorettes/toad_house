@@ -1,0 +1,29 @@
+# PLUGINS
+Godot State Charts
+LimboAI
+Inspector Tabs
+Smart Editor
+
+# CONVENTIONS
+Use Navigation Region 2d so NPCs are always navigating.
+State Charts for NPC states - Idle, Run, Wander, Flee, Surprise
+Behavior Trees for what characters do in those states and how they interact with the environment
+
+
+# NPC SETUP
+NPC's use:
+Godot State Charts
+Navigation Agent
+Limbo Behavior Tree
+Inherit / extend NPC base class
+- this handles movement + physics
+---
+
+State Chart:
+	Add StateChart Node
+	Add compound state, which is the root 
+	Add Atomic states after that, like Idle or Run. 
+	Connect the signal from each atomic state to the player script, eg:
+		func _on_idle_state_entered() -> void: # connect signal 
+			super._on_idle_state_entered() # just do this
+			state_machine.travel("idle") # animation change

@@ -1,21 +1,24 @@
 [gd_scene format=3 uid="uid://clr5yak66yj4p"]
 
-[ext_resource type="Script" uid="uid://cm1xgpllwg071" path="res://scripts/NPCfrog.gd" id="1_m75om"]
-[ext_resource type="Texture2D" uid="uid://d0bsus23cht8w" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog 1/Frog.png" id="2_jats0"]
+[ext_resource type="Script" uid="uid://bklmbmaxsfoe5" path="res://scripts/NPCfrog2.gd" id="1_yygk4"]
 [ext_resource type="BehaviorTree" uid="uid://6kqtn5rfa14h" path="res://characters/npc_frog.tres" id="3_jats0"]
-[ext_resource type="Texture2D" uid="uid://n0g4ms0hdx07" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog 3/Frog.png" id="4_jg3rj"]
+[ext_resource type="Texture2D" uid="uid://d4go55tr4d0v6" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog_dgreen.png" id="3_moto4"]
+[ext_resource type="Texture2D" uid="uid://d2ewyu740tkpk" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog_ggreen.png" id="4_bnyna"]
+[ext_resource type="Texture2D" uid="uid://ev12bpdj1xwm" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog 3/BabyFrog.png" id="4_jg3rj"]
 [ext_resource type="Texture2D" uid="uid://dyyikpoyvd12s" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog_blue.png" id="5_jn2ad"]
-[ext_resource type="Texture2D" uid="uid://c35rja87ca027" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog 4/Frog.png" id="5_yygk4"]
-[ext_resource type="Texture2D" uid="uid://dm5hj1fweuwvc" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog_purple.png" id="6_q4b6l"]
 [ext_resource type="Texture2D" uid="uid://cgt8gtpxfuakj" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog_turq.png" id="7_78wqr"]
 [ext_resource type="Texture2D" uid="uid://bwp8sni5brcjg" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog_Lpurple.png" id="8_q4b6l"]
+[ext_resource type="PackedScene" uid="uid://bcwkugn6v3oy7" path="res://addons/godot_state_charts/utilities/state_chart_debugger.tscn" id="9_a4r7d"]
+[ext_resource type="Texture2D" uid="uid://bhvf2gd52nrbg" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog_red.png" id="9_jsgv4"]
 [ext_resource type="Texture2D" uid="uid://dsudgkxi2grqr" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog_pink.png" id="9_uxnr3"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_78wqr"]
-load_path = "res://.godot/imported/Frog_yellow.png-fb95d55590505ff1f97968417254d812.ctex"
+[ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="11_b301c"]
+[ext_resource type="Texture2D" uid="uid://bmetadaty43ft" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog_yellow.png" id="11_glqi3"]
+[ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="12_a4r7d"]
+[ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="13_eeu52"]
+[ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="14_w0m61"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pudxr"]
-size = Vector2(9, 4.5)
+size = Vector2(9, 5)
 
 [sub_resource type="Animation" id="Animation_yoiyo"]
 length = 0.001
@@ -100,6 +103,7 @@ tracks/0/keys = {
 resource_name = "idle1"
 length = 0.5
 loop_mode = 1
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -117,6 +121,7 @@ tracks/0/keys = {
 resource_name = "idle2"
 length = 0.6
 loop_mode = 1
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -134,6 +139,7 @@ tracks/0/keys = {
 resource_name = "idle3"
 length = 1.8
 loop_mode = 1
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -280,7 +286,8 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_t81jd"]
 resource_name = "surprise"
-length = 0.8
+length = 1.5
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -430,13 +437,30 @@ states/sleep/position = Vector2(981, 89)
 states/surprise/node = SubResource("AnimationNodeAnimation_jn2ad")
 states/surprise/position = Vector2(1685, 77)
 transitions = ["Start", "idle1", SubResource("AnimationNodeStateMachineTransition_uu10c"), "idle1", "idle2", SubResource("AnimationNodeStateMachineTransition_6k74j"), "idle2", "idle3", SubResource("AnimationNodeStateMachineTransition_kfnws"), "idle3", "jump", SubResource("AnimationNodeStateMachineTransition_ibsxe"), "jump", "run", SubResource("AnimationNodeStateMachineTransition_m1d0i"), "run", "jump", SubResource("AnimationNodeStateMachineTransition_rs5rh"), "jump", "idle3", SubResource("AnimationNodeStateMachineTransition_30o6n"), "idle3", "idle2", SubResource("AnimationNodeStateMachineTransition_xosqm"), "idle2", "idle1", SubResource("AnimationNodeStateMachineTransition_t81jd"), "run", "get_down", SubResource("AnimationNodeStateMachineTransition_q4b6l"), "get_down", "sleep", SubResource("AnimationNodeStateMachineTransition_78wqr"), "sleep", "get_up", SubResource("AnimationNodeStateMachineTransition_uxnr3"), "get_up", "sit", SubResource("AnimationNodeStateMachineTransition_nq4yk"), "sit", "ribbit 2", SubResource("AnimationNodeStateMachineTransition_b301c"), "ribbit 2", "sit_up", SubResource("AnimationNodeStateMachineTransition_a4r7d"), "sit_up", "surprise", SubResource("AnimationNodeStateMachineTransition_eeu52"), "surprise", "sit_up", SubResource("AnimationNodeStateMachineTransition_w0m61"), "sit_up", "ribbit 2", SubResource("AnimationNodeStateMachineTransition_moto4"), "ribbit 2", "sit", SubResource("AnimationNodeStateMachineTransition_bnyna"), "sit", "get_up", SubResource("AnimationNodeStateMachineTransition_valfv"), "get_up", "sleep", SubResource("AnimationNodeStateMachineTransition_jsgv4"), "sleep", "get_down", SubResource("AnimationNodeStateMachineTransition_glqi3"), "get_down", "run", SubResource("AnimationNodeStateMachineTransition_ao0dt")]
-graph_offset = Vector2(960, -48)
+graph_offset = Vector2(-4.2568507, -48)
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_o0kpo"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_b301c"]
+radius = 82.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a4r7d"]
+radius = 41.01219
+
 [node name="NPCFrog" type="CharacterBody2D" unique_id=2026523039]
-script = ExtResource("1_m75om")
-skins = Array[Texture2D]([ExtResource("2_jats0"), ExtResource("5_yygk4"), ExtResource("5_jn2ad"), ExtResource("6_q4b6l"), ExtResource("7_78wqr"), SubResource("CompressedTexture2D_78wqr"), ExtResource("9_uxnr3"), ExtResource("8_q4b6l")])
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_yygk4")
+skins = Array[Texture2D]([ExtResource("5_jn2ad"), ExtResource("3_moto4"), ExtResource("4_bnyna"), ExtResource("8_q4b6l"), ExtResource("9_uxnr3"), ExtResource("9_jsgv4"), ExtResource("7_78wqr"), ExtResource("11_glqi3")])
+
+[node name="StateChartDebugger" parent="." unique_id=21243768 instance=ExtResource("9_a4r7d")]
+visible = false
+offset_left = 92.0
+offset_top = -45.0
+offset_right = 333.0
+offset_bottom = 328.0
+scale = Vector2(0.25, 0.25)
+initial_node_to_watch = NodePath("../StateChart")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=594722287]
 y_sort_enabled = true
@@ -446,11 +470,12 @@ hframes = 16
 vframes = 23
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=103795892]
-position = Vector2(-0.5, -2.75)
+position = Vector2(-1, -3)
 shape = SubResource("RectangleShape2D_pudxr")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=788439980]
 libraries/ = SubResource("AnimationLibrary_cjtb3")
+playback_auto_capture = false
 
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=201204700]
 tree_root = SubResource("AnimationNodeStateMachine_5r1h6")
@@ -458,4 +483,112 @@ anim_player = NodePath("../AnimationPlayer")
 
 [node name="BTPlayer" type="BTPlayer" parent="." unique_id=1430000598]
 behavior_tree = ExtResource("3_jats0")
+active = false
 blackboard_plan = SubResource("BlackboardPlan_o0kpo")
+
+[node name="StateChart" type="Node" parent="." unique_id=1624130957]
+script = ExtResource("11_b301c")
+track_in_editor = true
+metadata/_custom_type_script = "uid://couw105c3bde4"
+
+[node name="Root" type="Node" parent="StateChart" unique_id=196020875]
+script = ExtResource("12_a4r7d")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateChart/Root" unique_id=142022832]
+script = ExtResource("13_eeu52")
+metadata/_custom_type_script = "uid://cytafq8i1y8qm"
+
+[node name="ToSurprise" type="Node" parent="StateChart/Root/Idle" unique_id=350762476]
+script = ExtResource("14_w0m61")
+to = NodePath("../../Surpise")
+event = &"character_nearby"
+delay_in_seconds = "0.0"
+
+[node name="ToFlee" type="Node" parent="StateChart/Root/Idle" unique_id=1504066005]
+script = ExtResource("14_w0m61")
+to = NodePath("../../Flee")
+event = &"character_too_close"
+delay_in_seconds = "0.0"
+
+[node name="ToWander" type="Node" parent="StateChart/Root/Idle" unique_id=1527141493]
+script = ExtResource("14_w0m61")
+to = NodePath("../../Wander")
+delay_in_seconds = "6.0"
+
+[node name="Surpise" type="Node" parent="StateChart/Root" unique_id=838800894]
+script = ExtResource("13_eeu52")
+
+[node name="ToFlee" type="Node" parent="StateChart/Root/Surpise" unique_id=2003784079]
+script = ExtResource("14_w0m61")
+to = NodePath("../../Flee")
+event = &"character_too_close"
+delay_in_seconds = "0.0"
+
+[node name="ToIdle" type="Node" parent="StateChart/Root/Surpise" unique_id=2044315757]
+script = ExtResource("14_w0m61")
+to = NodePath("../../Idle")
+event = &"character_left"
+delay_in_seconds = "0"
+
+[node name="Flee" type="Node" parent="StateChart/Root" unique_id=43300882]
+script = ExtResource("13_eeu52")
+
+[node name="ToRun" type="Node" parent="StateChart/Root/Flee" unique_id=162580941]
+script = ExtResource("14_w0m61")
+to = NodePath("../../Run")
+delay_in_seconds = "0.0"
+
+[node name="Run" type="Node" parent="StateChart/Root" unique_id=1410180984]
+script = ExtResource("13_eeu52")
+metadata/_custom_type_script = "uid://488xerv8d0xh"
+
+[node name="ToIdle" type="Node" parent="StateChart/Root/Run" unique_id=91339952]
+script = ExtResource("14_w0m61")
+to = NodePath("../../Idle")
+event = &"nav_finished"
+delay_in_seconds = "0"
+
+[node name="ToFlee" type="Node" parent="StateChart/Root/Run" unique_id=1523949688]
+script = ExtResource("14_w0m61")
+to = NodePath("../../Flee")
+event = &"character_too_close"
+delay_in_seconds = "0"
+
+[node name="Wander" type="Node" parent="StateChart/Root" unique_id=2054843971]
+script = ExtResource("13_eeu52")
+
+[node name="ToIdle" type="Node" parent="StateChart/Root/Wander" unique_id=2093479288]
+script = ExtResource("14_w0m61")
+to = NodePath("../../Idle")
+event = &"nav_finished"
+delay_in_seconds = "0"
+
+[node name="SurpriseArea" type="Area2D" parent="." unique_id=833771551]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SurpriseArea" unique_id=1907154494]
+shape = SubResource("CircleShape2D_b301c")
+
+[node name="RunArea" type="Area2D" parent="." unique_id=751060803]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RunArea" unique_id=592000624]
+shape = SubResource("CircleShape2D_a4r7d")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=655752050]
+path_desired_distance = 10.0
+path_postprocessing = 1
+radius = 30.0
+neighbor_distance = 100.0
+max_neighbors = 3
+
+[connection signal="state_entered" from="StateChart/Root/Idle" to="." method="_on_idle_state_entered"]
+[connection signal="state_entered" from="StateChart/Root/Surpise" to="." method="_on_surpise_state_entered"]
+[connection signal="state_entered" from="StateChart/Root/Flee" to="." method="_on_flee_state_entered"]
+[connection signal="state_entered" from="StateChart/Root/Run" to="." method="_on_run_state_entered"]
+[connection signal="state_entered" from="StateChart/Root/Wander" to="." method="_on_wander_state_entered"]
+[connection signal="body_entered" from="SurpriseArea" to="." method="_on_surprise_area_body_entered"]
+[connection signal="body_exited" from="SurpriseArea" to="." method="_on_surprise_area_body_exited"]
+[connection signal="body_entered" from="RunArea" to="." method="_on_run_area_body_entered"]
+[connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]

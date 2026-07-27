@@ -1,0 +1,118 @@
+[gd_resource type="Resource" script_class="SproutyDialogsDialogueData" format=3 uid="uid://mjlhekqkwbmg"]
+
+[ext_resource type="Script" uid="uid://cbjdca3iwlx36" path="res://addons/sprouty_dialogs/resources/dialogue_data.gd" id="1_n7kts"]
+
+[resource]
+script = ExtResource("1_n7kts")
+graph_data = {
+"2": {
+"dialogue_node_1": {
+"char_expand": true,
+"character": "chambre_mayd",
+"dialog_key": "2_DIALOG_1",
+"node_index": 1,
+"node_type": "dialogue_node",
+"offset": Vector2(600, 100),
+"portrait": "Default",
+"size": Vector2(250, 349),
+"to_dialog": "",
+"to_node": ["options_node_1"]
+},
+"dialogue_node_2": {
+"char_expand": true,
+"character": "",
+"dialog_key": "2_DIALOG_2",
+"node_index": 2,
+"node_type": "dialogue_node",
+"offset": Vector2(1340, 400),
+"portrait": "",
+"size": Vector2(250, 305.00006),
+"to_dialog": "",
+"to_node": ["END"]
+},
+"options_node_1": {
+"node_index": 1,
+"node_type": "options_node",
+"offset": Vector2(980, 160.01999),
+"options_conditions": [{
+"enabled": false,
+"first_var": {
+"metadata": {},
+"type": 40,
+"value": ""
+},
+"operator": 0,
+"second_var": {
+"metadata": {},
+"type": 40,
+"value": ""
+},
+"visibility": 0
+}, {
+"enabled": false,
+"first_var": {
+"metadata": {},
+"type": 40,
+"value": ""
+},
+"operator": 0,
+"second_var": {
+"metadata": {},
+"type": 40,
+"value": ""
+},
+"visibility": 0
+}],
+"options_keys": ["2_OPT1_1", "2_OPT1_2"],
+"size": Vector2(250, 337),
+"to_dialog": "",
+"to_node": ["wait_node_1", "dialogue_node_2"]
+},
+"start_node_1": {
+"node_index": 1,
+"node_type": "start_node",
+"offset": Vector2(206, 120),
+"size": Vector2(200, 71),
+"start_id": "2",
+"to_dialog": "",
+"to_node": ["dialogue_node_1"]
+},
+"wait_node_1": {
+"close_dialog": true,
+"node_index": 1,
+"node_type": "wait_node",
+"offset": Vector2(1200, -60),
+"size": Vector2(222, 131),
+"to_dialog": "",
+"to_node": ["options_node_1"],
+"wait_time": 15.0
+}
+}
+}
+dialogs = {
+"2_DIALOG_1": {
+"default": "[wave]Whaaaaaattt? [/wave]
+
+[tornado]Who are you?[/tornado]
+
+[rainbow]I don't know you[/rainbow]
+
+[shake]Butts[/shake]",
+"en": ""
+},
+"2_DIALOG_2": {
+"default": "111111",
+"en": ""
+},
+"2_OPT1_1": {
+"default": "[rainbow]toad hall[/rainbow]"
+},
+"2_OPT1_2": {
+"default": "[fade][wave]graveyard[/wave][/fade]"
+}
+}
+characters = {
+"2": {
+"chambre_mayd": 2107712697103880014
+}
+}

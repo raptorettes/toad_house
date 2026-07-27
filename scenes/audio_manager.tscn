@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b8p2piq6wvkv7"]
+
+[ext_resource type="Script" uid="uid://d3i3cid7dtpio" path="res://scripts/audio_manager.gd" id="1_m6ggh"]
+[ext_resource type="AudioStream" uid="uid://cnnjqpph3jiv3" path="res://assets/music/calm_bay.mp3" id="2_aoitu"]
+[ext_resource type="AudioStream" uid="uid://dlxkpxbcm2a7b" path="res://assets/music/frogs_croaking1.mp3" id="3_njtn3"]
+[ext_resource type="AudioStream" uid="uid://bka3c4acxqlhg" path="res://assets/music/frogs_leopard_croaking.mp3" id="4_kq7b2"]
+
+[node name="Node2D" type="Node" unique_id=1135390557]
+script = ExtResource("1_m6ggh")
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=50188382]
+stream = ExtResource("2_aoitu")
+volume_db = -9.0
+autoplay = true
+
+[node name="BGFrogs" type="AudioStreamPlayer" parent="." unique_id=1913715674]
+stream = ExtResource("3_njtn3")
+volume_db = -5.0
+autoplay = true
+
+[node name="BGFrogs2" type="AudioStreamPlayer" parent="." unique_id=428157858]
+stream = ExtResource("4_kq7b2")

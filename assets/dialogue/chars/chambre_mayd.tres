@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="SproutyDialogsCharacterData" format=3 uid="uid://5a8yqr8j6fco"]
+
+[ext_resource type="Script" uid="uid://kwoapf8il7ee" path="res://addons/sprouty_dialogs/resources/character_data.gd" id="1_m8hep"]
+[ext_resource type="Script" uid="uid://ygs6blymsjbh" path="res://addons/sprouty_dialogs/resources/portrait_data.gd" id="1_qsj04"]
+
+[sub_resource type="Resource" id="Resource_qsj04"]
+script = ExtResource("1_qsj04")
+portrait_scene_uid = 1299718033790120247
+portrait_scene_path = "res://assets/dialogue/chars/portraits/chammy_default.tscn"
+export_overrides = {
+"portrait_image": {
+"type": 4,
+"value": "res://assets/dialogue/chars/portraits/Screenshot_20260604_230111.png"
+}
+}
+typing_sound = {}
+
+[resource]
+script = ExtResource("1_m8hep")
+key_name = "chambre_mayd"
+display_name = {
+"default": "Chammy",
+"en": ""
+}
+description = "Just a humble toilet girl.	"
+portrait_on_dialog_box = true
+default_portrait = "Default"
+portraits = {
+"Default": {
+"data": SubResource("Resource_qsj04"),
+"index": 0
+}
+}

@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name player_frogge
 
 @export var move_speed: float = 70
 @onready var animation_tree = $AnimationTree
@@ -24,6 +25,9 @@ func _physics_process(_delta):
 	velocity = input_direction * move_speed
 	move_and_slide()
 	pick_new_state()
+	#check_water()
+	
+	
 
 func flip_sprite():
 	if abs(input_direction.x) > 0.7:
@@ -34,3 +38,5 @@ func pick_new_state():
 	if new_state != current_state:
 		current_state = new_state
 		state_machine.travel(new_state)
+		
+		
