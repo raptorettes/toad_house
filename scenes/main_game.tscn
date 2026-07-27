@@ -15,6 +15,12 @@ source_geometry_group_name = &"nav_group"
 cell_size = 3.0
 border_size = 3.0
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ab4jh"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mla6r"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hr1wp"]
+
 [node name="Main" type="Node2D" unique_id=1472344536]
 y_sort_enabled = true
 
@@ -75,10 +81,9 @@ position = Vector2(75, 163)
 
 [node name="Camera2D" type="Camera2D" parent="Frog" unique_id=452618445]
 zoom = Vector2(2, 2)
-limit_enabled = false
-limit_left = -200
-limit_top = -150
-limit_right = 610
+limit_left = -237
+limit_top = -173
+limit_right = 660
 limit_bottom = 460
 position_smoothing_enabled = true
 position_smoothing_speed = 1.0
@@ -164,3 +169,24 @@ position = Vector2(248, 14)
 
 [node name="NPCFrog22" parent="." unique_id=690394853 instance=ExtResource("2_72e8q")]
 position = Vector2(316, 15)
+
+[node name="WorldEdge" type="StaticBody2D" parent="." unique_id=1783418641]
+
+[node name="Bottom" type="CollisionShape2D" parent="WorldEdge" unique_id=1483797149]
+position = Vector2(-384, 464)
+shape = SubResource("WorldBoundaryShape2D_ab4jh")
+
+[node name="Left" type="CollisionShape2D" parent="WorldEdge" unique_id=17141853]
+position = Vector2(-234, 59)
+rotation = -4.7076154
+shape = SubResource("WorldBoundaryShape2D_mla6r")
+
+[node name="Right" type="CollisionShape2D" parent="WorldEdge" unique_id=488857760]
+position = Vector2(662, 28)
+rotation = -1.5730096
+shape = SubResource("WorldBoundaryShape2D_mla6r")
+
+[node name="Top" type="CollisionShape2D" parent="WorldEdge" unique_id=1438155200]
+position = Vector2(0, -162)
+rotation = 3.14062
+shape = SubResource("WorldBoundaryShape2D_hr1wp")

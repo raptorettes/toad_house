@@ -10,17 +10,6 @@ class_name player_frogge
 var input_direction: Vector2 = Vector2.ZERO
 var current_state: String = ""
 
-#Non-Generic
-#For water SFX
-#var water_layer: TileMapLayer
-#@onready var water_audio = $WaterFX
-
-#func _ready():
-	#detect if on water for sfx
-	#water_layer = get_tree().get_first_node_in_group("water")
-
-
-
 
 func _physics_process(_delta):
 	input_direction = Vector2(
@@ -49,19 +38,5 @@ func pick_new_state():
 	if new_state != current_state:
 		current_state = new_state
 		state_machine.travel(new_state)
-		
-		
-#NON GENERIC
-#WaterFX
-#func check_water() -> void:
-	#if not water_layer:
-		#return
-	#var tile_pos = water_layer.local_to_map(water_layer.to_local(global_position))
-	#var tile_data = water_layer.get_cell_tile_data(tile_pos)
-	#if tile_data != null and input_direction != Vector2.ZERO:
-		#if not water_audio.playing:
-			#water_audio.play()
-	#else:
-		#water_audio.stop()
 		
 		
