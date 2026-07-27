@@ -36,7 +36,7 @@ window/stretch/scale_mode="integer"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/inspector_tabs/plugin.cfg", "res://addons/smart-editor-plugin/plugin.cfg", "res://addons/sprout_lands_tilemap/plugin.cfg")
+enabled=PackedStringArray("res://addons/inspector_tabs/plugin.cfg", "res://addons/sprout_lands_tilemap/plugin.cfg")
 
 [physics]
 
