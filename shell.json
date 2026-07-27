@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "title": "Padda",
+  "executableName": "padda",
+  "template": {
+    "version": "2026-07-24/0c57d8f"
+  },
+  "theme": {
+    "background": "4e2a4c",
+    "accent": "#eda3c4"
+  },
+  "features": {
+    "threads": true,
+    "serviceWorker": false
+  }
+}
