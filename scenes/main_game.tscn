@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bl265i512mxju" path="res://characters/frog.tscn" id="1_s3esy"]
 [ext_resource type="PackedScene" uid="uid://clr5yak66yj4p" path="res://characters/frog_NPC.tscn" id="2_72e8q"]
 [ext_resource type="PackedScene" uid="uid://di7nt2ddct2pf" path="res://characters/frog_BB_NPC.tscn" id="5_ipu61"]
+[ext_resource type="Script" uid="uid://b672n6hnb0fkf" path="res://addons/virtual_joystick_DX/vjdx_core_script.gd" id="5_ygxny"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ipu61"]
 vertices = PackedVector2Array(583.1328, 400.97656, -163.82031, 400.0078, -155.17188, -89.07031, 589.8594, -94.90625)
@@ -190,3 +191,26 @@ shape = SubResource("WorldBoundaryShape2D_mla6r")
 position = Vector2(0, -162)
 rotation = 3.14062
 shape = SubResource("WorldBoundaryShape2D_hr1wp")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=286181192]
+
+[node name="VirtualJoystickDX" type="Control" parent="CanvasLayer" unique_id=1683877773]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 101.00001
+offset_top = -100.0
+offset_right = 101.00001
+offset_bottom = -100.0
+grow_vertical = 0
+scale = Vector2(0.6666485, 0.6666485)
+mouse_filter = 2
+script = ExtResource("5_ygxny")
+color_js_base = Color(0.16356, 0.2650098, 0.20688245, 0.54901963)
+color_js_thumb_active = Color(0.82858396, 0.5174869, 0.5789086, 1)
+"Colors - D-Pad" = null
+"Textures - D-Pad" = null
+Cardinals = null
+Diagonals = null
+metadata/_custom_type_script = "uid://b672n6hnb0fkf"

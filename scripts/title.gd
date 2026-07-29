@@ -42,5 +42,7 @@ func _start_game():
 	click_sound.play()
 	var tween = create_tween()
 	tween.tween_property(canvas_container, "modulate:a", 0.0, 0.4)
-	tween.tween_callback(func(): get_tree().change_scene_to_file("res://scenes/main_game.tscn"))
+	tween.tween_callback(
+		func():
+			get_tree().change_scene_to_file("res://scenes/main_game.tscn"))
 	
