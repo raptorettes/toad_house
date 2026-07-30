@@ -8,6 +8,7 @@
 
 [sub_resource type="BTAction" id="BTAction_wcd2q"]
 custom_name = "rest"
+anim_name = "rest"
 script = ExtResource("1_3km3r")
 anim_name = "rest"
 
@@ -16,6 +17,7 @@ children = [SubResource("BTAction_wcd2q")]
 
 [sub_resource type="BTAction" id="BTAction_3km3r"]
 custom_name = "idle"
+anim_name = "idle"
 script = ExtResource("1_3km3r")
 anim_name = "idle"
 
@@ -23,6 +25,8 @@ anim_name = "idle"
 children = [SubResource("BTAction_3km3r")]
 
 [sub_resource type="BTAction" id="BTAction_bwn28"]
+range_min = 10.0
+range_max = 20.0
 script = ExtResource("2_cdrkh")
 range_min = 10.0
 range_max = 20.0

@@ -8,15 +8,19 @@
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_m75om"]
 
 [sub_resource type="BTAction" id="BTAction_o0e6g"]
+anim_name = "get_down"
 script = ExtResource("1_o0e6g")
 anim_name = "get_down"
 
 [sub_resource type="BTAction" id="BTAction_w6664"]
+anim_name = "sleep"
+min_duration = 3.0
 script = ExtResource("2_w6664")
 anim_name = "sleep"
 min_duration = 3.0
 
 [sub_resource type="BTAction" id="BTAction_hfaaq"]
+anim_name = "get_up"
 script = ExtResource("1_o0e6g")
 anim_name = "get_up"
 
@@ -25,15 +29,19 @@ custom_name = "Seq - rest"
 children = [SubResource("BTAction_o0e6g"), SubResource("BTAction_w6664"), SubResource("BTAction_hfaaq")]
 
 [sub_resource type="BTAction" id="BTAction_jgiin"]
+anim_name = "sit"
 script = ExtResource("1_o0e6g")
 anim_name = "sit"
 
 [sub_resource type="BTAction" id="BTAction_wa1xh"]
+anim_name = "ribbit"
+min_duration = 3.0
 script = ExtResource("2_w6664")
 anim_name = "ribbit"
 min_duration = 3.0
 
 [sub_resource type="BTAction" id="BTAction_kqacg"]
+anim_name = "sit_up"
 script = ExtResource("1_o0e6g")
 anim_name = "sit_up"
 
@@ -43,6 +51,8 @@ children = [SubResource("BTAction_jgiin"), SubResource("BTAction_wa1xh"), SubRes
 metadata/_weight_ = 1.9342330848157625
 
 [sub_resource type="BTAction" id="BTAction_irpd2"]
+range_min = 50.0
+range_max = 100.0
 script = ExtResource("3_o0e6g")
 range_min = 50.0
 range_max = 100.0
@@ -56,16 +66,22 @@ children = [SubResource("BTAction_irpd2"), SubResource("BTAction_i6uol")]
 metadata/_weight_ = 2.1859729807415924
 
 [sub_resource type="BTAction" id="BTAction_luqqp"]
+anim_name = "idle1"
+max_duration = 4.0
 script = ExtResource("2_w6664")
 anim_name = "idle1"
 max_duration = 4.0
 
 [sub_resource type="BTAction" id="BTAction_b2rhe"]
+anim_name = "idle2"
+max_duration = 4.0
 script = ExtResource("2_w6664")
 anim_name = "idle2"
 max_duration = 4.0
 
 [sub_resource type="BTAction" id="BTAction_n244w"]
+anim_name = "idle3"
+max_duration = 4.0
 script = ExtResource("2_w6664")
 anim_name = "idle3"
 max_duration = 4.0
@@ -78,8 +94,8 @@ metadata/_weight_ = 0.41754654698575067
 children = [SubResource("BTSequence_irpd2"), SubResource("BTSequence_rjxxr"), SubResource("BTSequence_if52o"), SubResource("BTRandomSelector_o0e6g")]
 
 [sub_resource type="BBNode" id="BBNode_o0e6g"]
-saved_value = NodePath(".")
 resource_name = "."
+saved_value = NodePath(".")
 
 [sub_resource type="BTCallMethod" id="BTCallMethod_w6664"]
 node = SubResource("BBNode_o0e6g")

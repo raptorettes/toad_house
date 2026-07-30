@@ -37,7 +37,7 @@ window/stretch/scale_mode="integer"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/inspector_tabs/plugin.cfg", "res://addons/sprout_lands_tilemap/plugin.cfg", "res://addons/virtual_joystick_DX/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot_state_charts/plugin.cfg", "res://addons/inspector_tabs/plugin.cfg", "res://addons/script-name-on-top/plugin.cfg", "res://addons/virtual_joystick_DX/plugin.cfg")
 
 [input]
 

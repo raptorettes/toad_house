@@ -2,15 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://drgils6hpmkx" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog 1/BabyFrog.png" id="1_a203g"]
 [ext_resource type="Script" uid="uid://dnlwap73xhh4g" path="res://scripts/frog_bb_npc.gd" id="1_ad41w"]
-[ext_resource type="BehaviorTree" uid="uid://brt5evkld2ywf" path="res://characters/npc_bb_frog.tres" id="2_swodx"]
 [ext_resource type="Texture2D" uid="uid://dofk026jhehgo" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog 2/BabyFrog.png" id="3_qhmh1"]
 [ext_resource type="Texture2D" uid="uid://ev12bpdj1xwm" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog 3/BabyFrog.png" id="4_py4ss"]
 [ext_resource type="Texture2D" uid="uid://din7amhtlqb0f" path="res://assets/sprites/Frogs -Pixel Art Asset Pack/Frog 4/BabyFrog.png" id="5_ewghj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pudxr"]
 size = Vector2(4, 2)
-
-[sub_resource type="BlackboardPlan" id="BlackboardPlan_yynkp"]
 
 [sub_resource type="Animation" id="Animation_ad41w"]
 length = 0.001
@@ -102,10 +99,6 @@ vframes = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=103795892]
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_pudxr")
-
-[node name="BTPlayer" type="BTPlayer" parent="." unique_id=922362111]
-behavior_tree = ExtResource("2_swodx")
-blackboard_plan = SubResource("BlackboardPlan_yynkp")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1654778623]
 libraries/ = SubResource("AnimationLibrary_qhmh1")
