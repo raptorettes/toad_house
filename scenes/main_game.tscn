@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://clr5yak66yj4p" path="res://characters/frog_NPC.tscn" id="2_72e8q"]
 [ext_resource type="PackedScene" uid="uid://di7nt2ddct2pf" path="res://characters/frog_BB_NPC.tscn" id="5_ipu61"]
 [ext_resource type="Script" uid="uid://b672n6hnb0fkf" path="res://addons/virtual_joystick_DX/vjdx_core_script.gd" id="5_ygxny"]
+[ext_resource type="Texture2D" uid="uid://csf3c0n5u422" path="res://addons/virtual_joystick_DX/Dpad textures/preset 1/idle.svg" id="6_ygxny"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ipu61"]
 vertices = PackedVector2Array(583.1328, 400.97656, -163.82031, 400.0078, -155.17188, -89.07031, 589.8594, -94.90625)
@@ -210,6 +211,7 @@ script = ExtResource("5_ygxny")
 color_js_base = Color(0.16356, 0.2650098, 0.20688245, 0.54901963)
 color_js_thumb_active = Color(0.82858396, 0.5174869, 0.5789086, 1)
 "Colors - D-Pad" = null
+tex_joystick_base = ExtResource("6_ygxny")
 "Textures - D-Pad" = null
 Cardinals = null
 Diagonals = null
